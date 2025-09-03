@@ -3,8 +3,15 @@ tags:
   - front
   - exos
 ---
+## Exo 1  : 4 Boutons cycliques avec desctivation
+![[Pasted image 20250901153059.png]]
 
-## Exo 1 : 4 boutons alternantifs avec désactivation
+### Resolution : 
+#### Automate
+![[Pasted image 20250903103257.png]]
+#### Tableau
+![[WhatsApp Image 2025-09-01 at 15.32.18.jpeg]]
+## Exo 2 : 4 boutons alternantifs avec désactivation
 
 ![[Pasted image 20250901152807.png]]
 ### Resolution 1
@@ -47,16 +54,8 @@ E6 --> E6 : CB4
 #### Tableau
 ![[Pasted image 20250903095120.png]]
 Init =/a0> E1
-## Exo 2 : 4 Boutons cycliques avec desctivation
-![[Pasted image 20250901153059.png]]
-
-### Resolution : 
-#### Automate
-![[Pasted image 20250903103257.png]]
-#### Tableau
-![[WhatsApp Image 2025-09-01 at 15.32.18.jpeg]]
 ## Exo 3 du compteur : Raté :3
-Timer avec bouton start bouton pause
+Timer avec bouton start bouton pause (je l'ai raté celui là XD)
 #### Cache :
 ![[Pasted image 20250903111353.png]]
 ![[Pasted image 20250903111411.png]]
@@ -65,10 +64,10 @@ Timer avec bouton start bouton pause
 
 
 ## Exo 4 : Compteur dans les deux sens 
-## énoncé
+### énoncé
 ![[42bf4209-6913-4040-8981-e00a617023af.png]]
 
-## Automate 
+### Automate 
  
  ```plantuml
 @startuml
@@ -103,4 +102,82 @@ E3 --> E1 : timer / cpt =< 1 (gestion bug)
 E1 --> E1 : timer / a0()
 @enduml
  ```
- 
+## Exo 5 : Feux tricolores
+### Enoncé
+![[Pasted image 20250903120259.png]]
+Evts : 
+- CStart
+- CStop
+- CPanne
+- tr
+- to
+- tv
+- tpo
+- tpe
+`tr, to, tv` = timers rouge/orange/vert. `tpo, tpe` = timers panne ON/OFF. `CStart/CStop` = marche/arrêt. `CPanne` = bascule marche↔panne.
+### Automate
+```puml
+@startuml
+title Feu de circulation – Start/Stop (init de mode), Stop sort de tous les états
+
+' var: mode ∈ {Marche, Panne}; CPanne bascule le mode. Start va à l'initial du mode.
+' (tick=0.1s)
+
+[*] --> Off
+
+'--- Sélection de mode à l'arrêt
+Off --> Off : CPanne / mode = (mode="Marche"?"Panne":"Marche")
+
+'--- Start : vers l'initial du mode courant
+Off --> Marche.Rouge  : CStart [mode="Marche"]
+Off --> Panne.OrangeOn: CStart [mode="Panne"]
+
+'--- Stop : depuis TOUT état vers Off
+Marche.Rouge  --> Off : CStop
+Marche.Orange --> Off : CStop
+Marche.Vert   --> Off : CStop
+Panne.OrangeOn  --> Off : CStop
+Panne.OrangeOff --> Off : CStop
+
+'================ MODE MARCHE ================
+state Marche {
+  [*] --> Rouge
+  state Rouge  : entry / t=0
+  state Orange : entry / t=0
+  state Vert   : entry / t=0
+
+  Rouge  --> Rouge  : timer / t+=1
+  Rouge  --> Orange : tr [t>=10] / t=0
+
+  Orange --> Orange : timer / t+=1
+  Orange --> Vert   : to [t>=5] / t=0
+
+  Vert   --> Vert   : timer / t+=1
+  Vert   --> Rouge  : tv [t>=20] / t=0
+
+  ' Bascule de mode en marche : aller à l'initial du nouveau mode
+  Rouge  --> Panne.OrangeOn  : CPanne / mode="Panne"
+  Orange --> Panne.OrangeOn  : CPanne / mode="Panne"
+  Vert   --> Panne.OrangeOn  : CPanne / mode="Panne"
+}
+
+'================ MODE PANNE =================
+state Panne {
+  [*] --> OrangeOn
+  state OrangeOn  : entry / t=0
+  state OrangeOff : entry / t=0
+
+  OrangeOn  --> OrangeOn  : timer / t+=1
+  OrangeOn  --> OrangeOff : tpo [t>=6] / t=0
+
+  OrangeOff --> OrangeOff : timer / t+=1
+  OrangeOff --> OrangeOn  : tpe [t>=4] / t=0
+
+  ' Bascule de mode en panne : aller à l'initial du mode Marche
+  OrangeOn  --> Marche.Rouge : CPanne / mode="Marche"
+  OrangeOff --> Marche.Rouge : CPanne / mode="Marche"
+}
+@enduml
+```
+
+## Fin

@@ -1,0 +1,6 @@
+---
+tags:
+  - exos
+  - IDC
+  - menu
+---

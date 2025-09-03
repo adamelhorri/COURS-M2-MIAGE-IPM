@@ -3,9 +3,9 @@ tags:
   - menu
   - front
 ---
-## [[Cours]]
+## [[Programmation Front/Cours/Cours]]
 
-## [[Exos]]
+## [[Programmation Front/Exos/Exos]]
 ## Modalités
 
 - *Exam écrit* 50%
