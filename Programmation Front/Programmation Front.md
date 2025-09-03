@@ -3,9 +3,9 @@ tags:
   - menu
   - front
 ---
-## [[Cours 1 - Systèmes interactifs]]
+## [[Cours]]
 
-
+## [[Exos]]
 ## Modalités
 
 - *Exam écrit* 50%
