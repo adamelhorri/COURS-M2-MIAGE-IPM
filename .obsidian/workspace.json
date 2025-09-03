@@ -4,7 +4,7 @@
     "type": "split",
     "children": [
       {
-        "id": "7deacf22a0cba22c",
+        "id": "dea42d67c05df720",
         "type": "split",
         "children": [
           {
@@ -15,20 +15,24 @@
                 "id": "a6c4d657ce0b360d",
                 "type": "leaf",
                 "state": {
-                  "type": "empty",
-                  "state": {},
+                  "type": "markdown",
+                  "state": {
+                    "file": "Programmation Front/Exos/Exos 1 - Automates d'état - Exos.md",
+                    "mode": "source",
+                    "source": false
+                  },
                   "icon": "lucide-file",
-                  "title": "New tab"
+                  "title": "Exos 1 - Automates d'état - Exos"
                 }
               }
             ]
           },
           {
-            "id": "4ebb0eb6cb198075",
+            "id": "21d87e8dab2b78bc",
             "type": "tabs",
             "children": [
               {
-                "id": "a3e30e090766ea4a",
+                "id": "fcf43173b0fec389",
                 "type": "leaf",
                 "pinned": true,
                 "state": {
@@ -63,7 +67,7 @@
                   },
                   "pinned": true,
                   "icon": "terminal",
-                  "title": "Terminal: C:\\Windows\\System32\\conhost.exe - git  add ."
+                  "title": "Terminal: C:\\Windows\\System32\\conhost.exe"
                 }
               }
             ]
@@ -215,15 +219,17 @@
       "terminal:Open terminal": false
     }
   },
-  "active": "a3e30e090766ea4a",
+  "active": "fcf43173b0fec389",
   "lastOpenFiles": [
-    "z_img/Pasted image 20250903111420.png",
-    "Programmation Front/Exos/Exos.md",
     "Programmation Front/Exos/Exos 1 - Automates d'état - Exos.md",
-    "Programmation Front/Cours/Cours.md",
     "M2 MAIGE IPM.md",
-    "Programmation Front/Cours/Intro Système Interactif.pdf",
+    "Personal Data.md",
+    "42bf4209-6913-4040-8981-e00a617023af.png",
     "Programmation Front/Programmation Front.md",
+    "Programmation Front/Exos/Exos.md",
+    "z_img/Pasted image 20250903111420.png",
+    "Programmation Front/Cours/Cours.md",
+    "Programmation Front/Cours/Intro Système Interactif.pdf",
     "z_img/Pasted image 20250903111411.png",
     "z_img/Pasted image 20250903111353.png",
     "z_img/Pasted image 20250903103257.png",
@@ -235,7 +241,6 @@
     "z_img/Pasted image 20250901153059.png",
     "Programmation Front/Cours/Cours 1 - Systèmes interactifs.md",
     "z_img/Pasted image 20250901152807.png",
-    "z_img/WhatsApp Image 2025-09-01 at 15.24.04 1.jpeg",
     "Programmation Front/Exos",
     "Programmation Front/Cours",
     "Programmation Front",
