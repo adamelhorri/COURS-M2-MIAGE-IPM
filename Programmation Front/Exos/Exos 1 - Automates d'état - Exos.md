@@ -3,7 +3,7 @@ tags:
   - front
   - exos
 ---
-## Exo 1  : 4 Boutons cycliques avec desctivation
+## Exo 1  : 4 Boutons cycliques avec désactivation
 ![[Pasted image 20250901153059.png]]
 
 ### Resolution : 
@@ -11,7 +11,7 @@ tags:
 ![[Pasted image 20250903103257.png]]
 #### Tableau
 ![[WhatsApp Image 2025-09-01 at 15.32.18.jpeg]]
-## Exo 2 : 4 boutons alternantifs avec désactivation
+## Exo 2 : 4 boutons alternatifs avec désactivation
 
 ![[Pasted image 20250901152807.png]]
 ### Resolution 1
@@ -180,4 +180,4 @@ state Panne {
 @enduml
 ```
 
-## Fin
+

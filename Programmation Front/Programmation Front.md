@@ -2,11 +2,14 @@
 tags:
   - menu
   - front
+  - cours
+  - exos
 ---
 ## [[Programmation Front/Cours/Cours]]
 
 ## [[Programmation Front/Exos/Exos]]
-## Modalités
+## [[Programmation Front/Résumés/Résumés|Résumés]]
+## MCC
 
 - *Exam écrit* 50%
 - TP noté

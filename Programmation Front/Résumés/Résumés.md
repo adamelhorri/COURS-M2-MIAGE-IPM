@@ -1,0 +1,5 @@
+---
+tags:
+  - resume
+  - front
+---

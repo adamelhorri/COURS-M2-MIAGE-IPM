@@ -4,7 +4,7 @@
     "type": "split",
     "children": [
       {
-        "id": "5da138e170ebe69e",
+        "id": "1bc31dcef4f6e5c5",
         "type": "split",
         "children": [
           {
@@ -17,12 +17,12 @@
                 "state": {
                   "type": "markdown",
                   "state": {
-                    "file": "Programmation Front/Exos/Exos 1 - Automates d'état - Exos.md",
+                    "file": "Programmation Front/Exos/Exos.md",
                     "mode": "source",
                     "source": false
                   },
                   "icon": "lucide-file",
-                  "title": "Exos 1 - Automates d'état - Exos"
+                  "title": "Exos"
                 }
               },
               {
@@ -31,23 +31,22 @@
                 "state": {
                   "type": "markdown",
                   "state": {
-                    "file": "Integration et deploiement/Cours/Cours 2 - Source - Bonnes pratiques GIT.md",
+                    "file": "Programmation Front/Cours/Cours.md",
                     "mode": "source",
                     "source": false
                   },
                   "icon": "lucide-file",
-                  "title": "Cours 2 - Source - Bonnes pratiques GIT"
+                  "title": "Cours"
                 }
               }
-            ],
-            "currentTab": 1
+            ]
           },
           {
-            "id": "fc3492f69c35431c",
+            "id": "3e5968a98143bc29",
             "type": "tabs",
             "children": [
               {
-                "id": "0ceea4578353928e",
+                "id": "3eee10cbc8edf632",
                 "type": "leaf",
                 "pinned": true,
                 "state": {
@@ -82,7 +81,7 @@
                   },
                   "pinned": true,
                   "icon": "terminal",
-                  "title": "Terminal: C:\\Windows\\System32\\conhost.exe - git  add ."
+                  "title": "Terminal: C:\\Windows\\System32\\conhost.exe"
                 }
               }
             ]
@@ -234,29 +233,37 @@
       "terminal:Open terminal": false
     }
   },
-  "active": "0ceea4578353928e",
+  "active": "3eee10cbc8edf632",
   "lastOpenFiles": [
+    "Programmation Front/Exos/Exos.md",
+    "Integration et deploiement/Exos/Exos.md",
+    "Programmation Front/Exos/Exo 2 - Modelisation de composants.md",
+    "M2 MAIGE IPM.md",
+    "Anglais/Anglais.md",
     "Integration et deploiement/Cours/Cours 2 - Source - Bonnes pratiques GIT.md",
-    "Pasted image 20250903180236.png",
-    "Integration et deploiement/Cours/Cours 1 - Intro.md",
-    "Pasted image 20250903175144.png",
-    "Integration et deploiement/Cours/Cours.md",
+    "Anglais",
+    "Integration et deploiement/Cours/Cours 3 - Docker - Conteneurisation.md",
+    "Programmation Front/Programmation Front.md",
     "Integration et deploiement/Integration et deploiement.md",
+    "Integration et deploiement/Cours/Cours.md",
+    "Integration et deploiement/Resumés/Résumés.md",
+    "z_img/Pasted image 20250903175144.png",
+    "z_img/Pasted image 20250903180236.png",
+    "Programmation Front/Résumés/Résumés.md",
+    "Programmation Front/Résumés",
+    "Integration et deploiement/Resumés",
+    "Integration et deploiement/Cours/Cours 1 - Intro.md",
     "Programmation Front/Exos/Exos 1 - Automates d'état - Exos.md",
+    "Programmation Front/Cours/Cours.md",
     "Programmation Front/Cours/React part 1.pdf",
     "Programmation Front/Cours/Intro Système Interactif.pdf",
-    "Programmation Front/Cours/Cours.md",
-    "Integration et deploiement/Exos/Exos.md",
-    "M2 MAIGE IPM.md",
     "Untitled.md",
     "Personal Data.md",
     "Integration et deploiement/Exos",
     "Integration et deploiement/Cours",
     "Integration et deploiement",
     "z_img/Pasted image 20250903120259.png",
-    "Programmation Front/Exos/Exos.md",
     "z_img/42bf4209-6913-4040-8981-e00a617023af.png",
-    "Programmation Front/Programmation Front.md",
     "z_img/Pasted image 20250903111420.png",
     "z_img/Pasted image 20250903111411.png",
     "z_img/Pasted image 20250903111353.png",
@@ -266,5 +273,6 @@
     "z_img",
     "Programmation Front/Cours/Cours 1 - Systèmes interactifs.md",
     "Programmation Front/Exos",
-    "Programmation Front/Cours",
-    "
+    "Welcome.md"
+  ]
+}
