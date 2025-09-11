@@ -16,12 +16,14 @@
                 "id": "a6c4d657ce0b360d",
                 "type": "leaf",
                 "state": {
-                  "type": "image",
+                  "type": "markdown",
                   "state": {
-                    "file": "z_img/Pasted image 20250909150832.png"
+                    "file": "Programmation Front/Exos/Exos 1 - Automates d'état - Exos.md",
+                    "mode": "source",
+                    "source": false
                   },
-                  "icon": "lucide-image",
-                  "title": "Pasted image 20250909150832"
+                  "icon": "lucide-file",
+                  "title": "Exos 1 - Automates d'état - Exos"
                 }
               },
               {
@@ -122,9 +124,48 @@
                   "icon": "terminal",
                   "title": "Terminal: C:\\Windows\\System32\\conhost.exe"
                 }
+              },
+              {
+                "id": "214e7f46bc91f9c4",
+                "type": "leaf",
+                "pinned": true,
+                "state": {
+                  "type": "terminal:terminal",
+                  "state": {
+                    "terminal:terminal": {
+                      "cwd": "C:\\Users\\adame\\Documents\\IPM\\COURS-M2-MIAGE-IPM",
+                      "focus": false,
+                      "profile": {
+                        "args": [],
+                        "executable": "C:\\Windows\\System32\\cmd.exe",
+                        "name": "",
+                        "platforms": {
+                          "win32": true
+                        },
+                        "pythonExecutable": "python3",
+                        "restoreHistory": false,
+                        "rightClickAction": "copyPaste",
+                        "successExitCodes": [
+                          "0",
+                          "SIGINT",
+                          "SIGTERM"
+                        ],
+                        "terminalOptions": {
+                          "documentOverride": null
+                        },
+                        "type": "integrated",
+                        "useWin32Conhost": true
+                      },
+                      "serial": null
+                    }
+                  },
+                  "pinned": true,
+                  "icon": "terminal",
+                  "title": "Terminal: C:\\Windows\\System32\\conhost.exe"
+                }
               }
             ],
-            "currentTab": 1
+            "currentTab": 2
           }
         ],
         "direction": "horizontal"
@@ -273,22 +314,26 @@
       "terminal:Open terminal": false
     }
   },
-  "active": "c5fefcdb045a55bb",
+  "active": "214e7f46bc91f9c4",
   "lastOpenFiles": [
+    "Programmation Front/Exos/Exos 1 - Automates d'état - Exos.md",
+    "Programmation Front/Exos/Exos.md",
+    "Programmation Front/Cours/Intro Système Interactif.pdf",
+    "Programmation Front/Cours/Cours.md",
+    "Programmation Front/Programmation Front.md",
+    "Integration et deploiement/Cours/Cours.md",
+    "Integration et deploiement/Cours/Cours 4 - GitLab.md",
     "z_img/Pasted image 20250909150832.png",
     "z_img/Pasted image 20250909144346.png",
     "Programmation Front/Exos/Exo 2 - Modelisation de composants.md",
     "z_img/Pasted image 20250909150737.png",
-    "Programmation Front/Exos/Exos.md",
     "Integration et deploiement/Exos/Exos.md",
     "M2 MAIGE IPM.md",
     "Anglais/Anglais.md",
     "Integration et deploiement/Cours/Cours 2 - Source - Bonnes pratiques GIT.md",
     "Anglais",
     "Integration et deploiement/Cours/Cours 3 - Docker - Conteneurisation.md",
-    "Programmation Front/Programmation Front.md",
     "Integration et deploiement/Integration et deploiement.md",
-    "Integration et deploiement/Cours/Cours.md",
     "Integration et deploiement/Resumés/Résumés.md",
     "z_img/Pasted image 20250903175144.png",
     "z_img/Pasted image 20250903180236.png",
@@ -296,10 +341,7 @@
     "Programmation Front/Résumés",
     "Integration et deploiement/Resumés",
     "Integration et deploiement/Cours/Cours 1 - Intro.md",
-    "Programmation Front/Exos/Exos 1 - Automates d'état - Exos.md",
-    "Programmation Front/Cours/Cours.md",
     "Programmation Front/Cours/React part 1.pdf",
-    "Programmation Front/Cours/Intro Système Interactif.pdf",
     "Untitled.md",
     "Personal Data.md",
     "Integration et deploiement/Exos",
