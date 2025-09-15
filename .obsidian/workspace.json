@@ -10,7 +10,7 @@
           {
             "id": "5432e8da93ebb715",
             "type": "tabs",
-            "dimension": 72.67441860465117,
+            "dimension": 80.62015503875969,
             "children": [
               {
                 "id": "a6c4d657ce0b360d",
@@ -18,12 +18,12 @@
                 "state": {
                   "type": "markdown",
                   "state": {
-                    "file": "M2 MAIGE IPM.md",
+                    "file": "Repos GIT.md",
                     "mode": "source",
                     "source": false
                   },
                   "icon": "lucide-file",
-                  "title": "M2 MAIGE IPM"
+                  "title": "Repos GIT"
                 }
               },
               {
@@ -45,7 +45,7 @@
           {
             "id": "3e5968a98143bc29",
             "type": "tabs",
-            "dimension": 27.32558139534884,
+            "dimension": 19.379844961240313,
             "children": [
               {
                 "id": "3eee10cbc8edf632",
@@ -202,9 +202,48 @@
                   "icon": "terminal",
                   "title": "Terminal: C:\\Windows\\System32\\conhost.exe"
                 }
+              },
+              {
+                "id": "825b318b921570b1",
+                "type": "leaf",
+                "pinned": true,
+                "state": {
+                  "type": "terminal:terminal",
+                  "state": {
+                    "terminal:terminal": {
+                      "cwd": "C:\\Users\\adame\\Documents\\IPM\\COURS-M2-MIAGE-IPM",
+                      "focus": false,
+                      "profile": {
+                        "args": [],
+                        "executable": "C:\\Windows\\System32\\cmd.exe",
+                        "name": "",
+                        "platforms": {
+                          "win32": true
+                        },
+                        "pythonExecutable": "python3",
+                        "restoreHistory": false,
+                        "rightClickAction": "copyPaste",
+                        "successExitCodes": [
+                          "0",
+                          "SIGINT",
+                          "SIGTERM"
+                        ],
+                        "terminalOptions": {
+                          "documentOverride": null
+                        },
+                        "type": "integrated",
+                        "useWin32Conhost": true
+                      },
+                      "serial": null
+                    }
+                  },
+                  "pinned": true,
+                  "icon": "terminal",
+                  "title": "Terminal: C:\\Windows\\System32\\conhost.exe"
+                }
               }
             ],
-            "currentTab": 3
+            "currentTab": 4
           }
         ],
         "direction": "horizontal"
@@ -353,12 +392,15 @@
       "terminal:Open terminal": false
     }
   },
-  "active": "1c07b165940dc0fc",
+  "active": "825b318b921570b1",
   "lastOpenFiles": [
-    "M2 MAIGE IPM.md",
+    "Repos GIT.md",
+    "Programmation Front/Cours/React part 1.pdf",
     "Integration et deploiement/Exos/Exos.md",
     "Integration et deploiement/Integration et deploiement.md",
     "Integration et deploiement/Resumés/Résumés.md",
+    "README.md",
+    "M2 MAIGE IPM.md",
     "Integration et deploiement/Cours/Cours.md",
     "Integration et deploiement/Cours/Cours 4 - Kubernits.md",
     "Programmation Front/Exos/Exos 1 - Automates d'état - Exos.md",
@@ -381,9 +423,7 @@
     "Programmation Front/Résumés",
     "Integration et deploiement/Resumés",
     "Integration et deploiement/Cours/Cours 1 - Intro.md",
-    "Programmation Front/Cours/React part 1.pdf",
     "Untitled.md",
-    "Personal Data.md",
     "Integration et deploiement/Exos",
     "Integration et deploiement/Cours",
     "Integration et deploiement",
