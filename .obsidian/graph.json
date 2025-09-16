@@ -8,7 +8,7 @@
   "collapse-color-groups": false,
   "colorGroups": [
     {
-      "query": "tag:#front  ",
+      "query": "tag:#exam  ",
       "color": {
         "a": 1,
         "rgb": 14701138
@@ -20,18 +20,39 @@
         "a": 1,
         "rgb": 14725458
       }
+    },
+    {
+      "query": "tag:#eng  ",
+      "color": {
+        "a": 1,
+        "rgb": 11657298
+      }
+    },
+    {
+      "query": "tag:#front  ",
+      "color": {
+        "a": 1,
+        "rgb": 5431378
+      }
+    },
+    {
+      "query": "tag:#POO  ",
+      "color": {
+        "a": 1,
+        "rgb": 5431473
+      }
     }
   ],
   "collapse-display": false,
   "showArrow": false,
   "textFadeMultiplier": -1.7,
-  "nodeSizeMultiplier": 1.22291666666667,
+  "nodeSizeMultiplier": 1.37604166666667,
   "lineSizeMultiplier": 5,
   "collapse-forces": false,
   "centerStrength": 0.333333333333333,
   "repelStrength": 15.625,
   "linkStrength": 0.817708333333333,
   "linkDistance": 116,
-  "scale": 0.367344214918768,
+  "scale": 0.22172458645873452,
   "close": false
 }

@@ -6,7 +6,7 @@ tags:
   - exos
 ---
 ## [[Integration et deploiement/Cours/Cours|Cours]]
-## [[Exos]]
+## [[Integration et deploiement/Exos/Exos]]
 ## [[Integration et deploiement/Resumés/Résumés|Résumés]]
 ## TP
 

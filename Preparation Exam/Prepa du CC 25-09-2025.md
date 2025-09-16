@@ -1,23 +1,47 @@
 ---
 tags:
-  - front
   - exos
+  - front
+  - exam
 ---
-## Exo 1  : 4 Boutons cycliques avec désactivation
-![[Pasted image 20250901153059.png]]
+## Introduction
+**Contrôle écrit (3h)** portant sur la [[Programmation Objet]] avancée et la [[Programmation Front]].  
+L’épreuve évalue la **modélisation back et front** (sans intégration de données).
 
-### Resolution : 
-#### Automate
-![[Pasted image 20250903103257.png]]
-#### Tableau
-![[WhatsApp Image 2025-09-01 at 15.32.18.jpeg]]
-## Exo 2 : 4 boutons alternatifs avec désactivation
+**Contenu pédagogique couvert :**
+- **Front :**
+    - Automate d’état / diagramme d’état-transition (state machine diagram)
+    - Diagrammes de composants (notation spécifique du professeur)
+    - Table de transition d’état (state transition table)
+    - Passage à pseudo-code depuis la table
+- **Back :**
+    - Design patterns (modélisation)
+    - Design pattern MVC
+    - Diagramme de classes UML
+## Programmation Front 
+### Automates d'état
+##### Exo 1
+On dispose de 4 boutons numérotés de 1 à 4.
+- Cliquer sur le bouton **n** active le bouton **n+1** et désactive le bouton **n**.
+- Cliquer sur le bouton **4** active le bouton **1**.
+![[Pasted image 20250916152128.png]]
+###### **Automate d'état** : 
+```mermaid
+stateDiagram-v2
+    [*] --> E1
 
-![[Pasted image 20250901152807.png]]
-### Resolution 1
-#### Automate
+    E1 --> E2 : CB1
+    E2 --> E3 : CB2
+    E3 --> E4 : CB3
+    E4 --> E1 : CB4
 
-![[WhatsApp Image 2025-09-01 at 15.24.04 1.jpeg]]
+```
+##### Exo 2 
+On dispose de 4 boutons numérotés de 1 à 4.
+- Cliquer sur les boutons 1 et 2 active les boutons 3 et 4 et désactivent les boutons 1 et 2.
+- Et vice vers ça
+![[Pasted image 20250916153028.png]]
+###### **Automate d'état**
 ```plantuml
 @startuml
 [*] --> E1 : /a0()
@@ -51,25 +75,12 @@ E5 --> E5 : CB3
 E6 --> E6 : CB4
 @enduml
 ```
-#### Tableau
-![[Pasted image 20250903095120.png]]
-Init =/a0> E1
-## Exo 3 du compteur : Raté :3
-Timer avec bouton start bouton pause (je l'ai raté celui là XD)
-#### Cache :
-![[Pasted image 20250903111353.png]]
-![[Pasted image 20250903111411.png]]
-![[Pasted image 20250903111420.png]]
-
-
-
-## Exo 4 : Compteur dans les deux sens 
-### énoncé
-![[42bf4209-6913-4040-8981-e00a617023af.png]]
-
-### Automate 
- 
- ```plantuml
+#### Exo 3 - à faire
+##### Exo 4
+On dispose d'une fenêtre permettant de faire un compte à rebours avant et arrière, Bornés entre 0 et 20 , un bouton start et stop, et un afficheur de numero
+![[Pasted image 20250916153553.png]]
+###### **Automate d'état**
+```plantuml
 @startuml
 title Compteur – FSM avec bornes (0s - 20s)
 
@@ -101,22 +112,24 @@ E3 --> E1 : timer / cpt =< 1 (gestion bug)
 
 E1 --> E1 : timer / a0()
 @enduml
- ```
-## Exo 5 : Feux tricolores
-### Enoncé
-![[Pasted image 20250903120259.png]]
-Evts : 
-- CStart
-- CStop
-- CPanne
-- tr
-- to
-- tv
-- tpo
-- tpe
-`tr, to, tv` = timers rouge/orange/vert. `tpo, tpe` = timers panne ON/OFF. `CStart/CStop` = marche/arrêt. `CPanne` = bascule marche↔panne.
-### Automate
-```puml
+```
+##### Exo 5
+Dans cet exercice plus complexe, on gère deux modes de fonctionnement du feu : **Marche** et **Panne**, avec possibilité de basculer entre eux.
+**Événements disponibles :**
+- `CStart` : démarrage (active l’état initial du mode courant).
+- `CStop` : arrêt (retour à l’état _Off_ depuis n’importe quel état).
+- `CPanne` : bascule entre _Marche_ et _Panne_.
+- `tr`, `to`, `tv` : timers associés aux phases Rouge, Orange et Vert.
+- `tpo`, `tpe` : timers associés aux états Panne (Orange allumé/éteint).
+
+**Règles :**
+- En mode **Marche**, le cycle suit _Rouge → Orange → Vert → Rouge_, avec déclenchement basé sur `tr`, `to`, `tv`.
+- En mode **Panne**, le feu alterne _OrangeOn ↔ OrangeOff_ avec `tpo` et `tpe`.
+- `CStop` ramène toujours à l’état _Off_.
+- `CPanne` provoque un basculement immédiat vers l’état initial du mode opposé.
+Un **automate d’état** doit être construit pour représenter ces comportements.
+###### Automate d'état 
+```plantuml
 @startuml
 title Feu de circulation – Start/Stop (init de mode), Stop sort de tous les états
 
@@ -179,6 +192,3 @@ state Panne {
 }
 @enduml
 ```
-
-
-
