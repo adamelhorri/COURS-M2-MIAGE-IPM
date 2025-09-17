@@ -537,4 +537,180 @@ On modélise une **application avec quatre boutons** représentant les **saisons
 L’objectif est de représenter l’interaction entre les composants d’IHM (boutons, label) et le cœur de l’application (`Dialog`), ainsi que le rôle de l’adaptateur qui transforme les données avant l’affichage.
 
 Ici la modélisation :  
-![[Pasted image 20250916115706.png]]
+![[Pasted image 20250916115706.png]]![[Pasted image 20250916115706.png]]
+#### Exos à faire
+
+##### Exo 3 — Barre de filtres des tâches
+
+**Énoncé.** Modéliser une barre de filtres pour une liste de tâches : recherche textuelle, affichage « terminées uniquement », et priorité maximale. Les trois entrées doivent notifier un composant central qui diffuse les changements au tableau.
+
+**Corrigé (liste).**
+
+- **Composants**
+    
+    - `TaskFilterBar` (central)
+        
+    - `Input Search`
+        
+    - `Checkbox CompletedOnly`
+        
+    - `Range MaxPriority`
+        
+    - `TasksTable`
+        
+- **Attributs**
+    
+    - `Input Search` : `Placeholder`, `Text`
+        
+    - `Checkbox CompletedOnly` : `Checked`, `Label`
+        
+    - `Range MaxPriority` : `min`, `max`, `value`, `labelText`
+        
+    - `TaskFilterBar` : (—)
+        
+    - `TasksTable` : (—)
+        
+- **Liens / Événements**
+    
+    - `Input Search` — `onChange(String)` → `TaskFilterBar` (event : `SearchPatternChange`)
+        
+    - `Checkbox CompletedOnly` — `onChange(Boolean)` → `TaskFilterBar` (event : `CompletedOnlyChange`)
+        
+    - `Range MaxPriority` — `onChange(Number)` → `TaskFilterBar` (event : `MaxPriorityChange`)
+        
+    - `TaskFilterBar` → `TasksTable` (events : `SearchPatternChange`, `CompletedOnlyChange`, `MaxPriorityChange`)
+        
+
+---
+
+##### Exo 4 — Contrôles audio basiques
+
+**Énoncé.** Modéliser les contrôles d’un mini-lecteur : boutons **Play**, **Pause**, **Stop**, un **slider Volume**, et un **Label** affichant l’état courant via un adaptateur.
+
+**Corrigé (liste).**
+
+- **Composants**
+    
+    - `Player` (central)
+        
+    - `Button Play`, `Button Pause`, `Button Stop`
+        
+    - `Range Volume`
+        
+    - `Label State`
+        
+    - `Adapter` (formatte l’état en texte)
+        
+- **Attributs**
+    
+    - `Button *` : `Enabled`, `Label`
+        
+    - `Range Volume` : `min`, `max`, `value`, `labelText`
+        
+    - `Label State` : `Label`
+        
+    - `Player` : (—) ; `Adapter` : (—)
+        
+- **Liens / Événements**
+    
+    - `Button Play` — `onClick`/`toPlay` → `Player`
+        
+    - `Button Pause` — `onClick`/`toPause` → `Player`
+        
+    - `Button Stop` — `onClick`/`toStop` → `Player`
+        
+    - `Range Volume` — `onChange(Number)`/`volumeChange` → `Player`
+        
+    - `Player` — `stateChange(String)` → `Adapter` → `Label State`
+        
+    - (optionnel) `Player` — `setPauseEnabled(Boolean)` → `Button Pause`
+        
+
+---
+
+##### Exo 5 — Modal de confirmation
+
+**Énoncé.** Modéliser une fenêtre modale ouverte par un bouton **Open**. Dans la modale : **Confirm**, **Cancel**, une case **Don’t ask again**. Le label d’état affiche la dernière action via un adaptateur. Le bouton **Confirm** peut être (dés)activé par la modale.
+
+**Corrigé (liste).**
+
+- **Composants**
+    
+    - `Modal` (central)
+        
+    - `Button Open`, `Button Confirm`, `Button Cancel`
+        
+    - `Checkbox DontAskAgain`
+        
+    - `Label Status`
+        
+    - `Adapter`
+        
+- **Attributs**
+    
+    - `Button *` : `Enabled`, `Label`
+        
+    - `Checkbox DontAskAgain` : `Checked`, `Label`
+        
+    - `Label Status` : `Label`
+        
+    - `Modal`, `Adapter` : (—)
+        
+- **Liens / Événements**
+    
+    - `Button Open` — `onClick`/`open` → `Modal`
+        
+    - `Button Confirm` — `onClick`/`confirm` → `Modal`
+        
+    - `Button Cancel` — `onClick`/`cancel` → `Modal`
+        
+    - `Checkbox DontAskAgain` — `onChange(Boolean)`/`prefChange` → `Modal`
+        
+    - `Modal` — `statusChange(String)` → `Adapter` → `Label Status`
+        
+    - `Modal` — `setConfirmEnabled(Boolean)` → `Button Confirm`
+        
+
+---
+
+##### Exo 6 — Sélecteur de devise
+
+**Énoncé.** Modéliser un sélecteur de devise avec trois boutons **EUR/USD/GBP**, un **input montant**, et un **label** qui affiche « {amount} {currency} » via adaptateur. Le composant central gère la devise sélectionnée et le montant.
+
+**Corrigé (liste).**
+
+- **Composants**
+    
+    - `CurrencyDialog` (central)
+        
+    - `Button EUR`, `Button USD`, `Button GBP`
+        
+    - `Input Amount`
+        
+    - `Label Preview`
+        
+    - `Adapter`
+        
+- **Attributs**
+    
+    - `Button *` : `Enabled`, `Label`
+        
+    - `Input Amount` : `Placeholder`, `Text` (numérique)
+        
+    - `Label Preview` : `Label`
+        
+    - `CurrencyDialog`, `Adapter` : (—)
+        
+- **Liens / Événements**
+    
+    - `Button EUR` — `onClick`/`toEUR` → `CurrencyDialog`
+        
+    - `Button USD` — `onClick`/`toUSD` → `CurrencyDialog`
+        
+    - `Button GBP` — `onClick`/`toGBP` → `CurrencyDialog`
+        
+    - `Input Amount` — `onChange(String|Number)`/`amountChange` → `CurrencyDialog`
+        
+    - `CurrencyDialog` — `previewChange(String)` → `Adapter` → `Label Preview`
+        
+    - (optionnel) `CurrencyDialog` — `setButtonEnabled(Boolean)` → `Button *` (selon règles métier)

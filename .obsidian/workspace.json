@@ -10,6 +10,7 @@
           {
             "id": "5432e8da93ebb715",
             "type": "tabs",
+            "dimension": 80.62015503875969,
             "children": [
               {
                 "id": "b1fa3eb270102c60",
@@ -17,12 +18,12 @@
                 "state": {
                   "type": "markdown",
                   "state": {
-                    "file": "Programmation Front/Exos/Exo 2 - Modelisation de composants.md",
+                    "file": "Preparation Exam/Prepa du CC 25-09-2025/Prepa Front du CC 25-09-2025.md",
                     "mode": "source",
                     "source": false
                   },
                   "icon": "lucide-file",
-                  "title": "Exo 2 - Modelisation de composants"
+                  "title": "Prepa Front du CC 25-09-2025"
                 }
               },
               {
@@ -37,6 +38,20 @@
                   },
                   "icon": "lucide-file",
                   "title": "Introduction 25-09"
+                }
+              },
+              {
+                "id": "149c90541afedc70",
+                "type": "leaf",
+                "state": {
+                  "type": "markdown",
+                  "state": {
+                    "file": "Preparation Exam/Prepa du CC 25-09-2025/Prepa Front du CC 25-09-2025.md",
+                    "mode": "source",
+                    "source": false
+                  },
+                  "icon": "lucide-file",
+                  "title": "Prepa Front du CC 25-09-2025"
                 }
               },
               {
@@ -63,12 +78,12 @@
                   "title": "Pasted image 20250917104435"
                 }
               }
-            ],
-            "currentTab": 3
+            ]
           },
           {
             "id": "36ad3285b1b6a1b0",
             "type": "tabs",
+            "dimension": 19.379844961240313,
             "children": [
               {
                 "id": "7c61d544adc08f03",
@@ -261,14 +276,17 @@
   },
   "active": "7c61d544adc08f03",
   "lastOpenFiles": [
+    "Preparation Exam/Prepa du CC 25-09-2025/Prepa Front du CC 25-09-2025.md",
+    "Preparation Exam/Prepa du CC 25-09-2025/Prepa Back du CC 25-09-2025.md",
+    "Prog Objet/Cours/Cours.md",
+    "Prog Objet/Cours/pdf/Programmation Objet Avancée 1.pdf",
+    "Prog Objet/Exos/Exo 1.md",
+    "Programmation Front/Exos/Exo 2 - Modelisation de composants.md",
+    "Preparation Exam/Prepa du CC 25-09-2025/Introduction 25-09.md",
     "z_img/Pasted image 20250917104435.png",
     "M2 MAIGE IPM.md",
     "z_img/36b104e6-17c9-4575-83a4-89b2a1f46c80.png",
-    "Preparation Exam/Prepa du CC 25-09-2025/Prepa Front du CC 25-09-2025.md",
     "z_img/Pasted image 20250917104847.png",
-    "Programmation Front/Exos/Exo 2 - Modelisation de composants.md",
-    "Preparation Exam/Prepa du CC 25-09-2025/Introduction 25-09.md",
-    "Preparation Exam/Prepa du CC 25-09-2025/Prepa Back du CC 25-09-2025.md",
     "Untitled.base",
     "Untitled 8.base",
     "Untitled 7.base",
@@ -281,8 +299,6 @@
     "z_img/Pasted image 20250917104614.png",
     "z_img/Pasted image 20250917104602.png",
     "Prog Objet/Exos/Exos.md",
-    "Prog Objet/Exos/Exo 1.md",
-    "Preparation Exam/Prepa du CC 25-09-2025",
     "Programmation Front/Exos/Exos 1 - Automates d'état - Exos.md",
     "Anglais/Anglais.md",
     "z_img/Pasted image 20250916153553.png",
@@ -292,7 +308,6 @@
     "Programmation Front/Programmation Front.md",
     "Programmation Front/Cours/Cours.md",
     "Programmation Front/Résumés/Résumés.md",
-    "Prog Objet/Cours/Cours.md",
     "Prog Objet/Programmation Objet.md",
     "z_img/Pasted image 20250916115643.png",
     "z_img/Pasted image 20250916115706.png",
