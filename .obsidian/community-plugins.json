@@ -1,4 +1,6 @@
 [
   "terminal",
-  "obsidian-plantuml"
+  "obsidian-plantuml",
+  "custom-note-width",
+  "obsidian-auto-hide"
 ]
