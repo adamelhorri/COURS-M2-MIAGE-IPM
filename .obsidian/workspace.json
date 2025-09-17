@@ -43,18 +43,28 @@
                 "id": "5fe05bef87d0cd17",
                 "type": "leaf",
                 "state": {
-                  "type": "markdown",
+                  "type": "image",
                   "state": {
-                    "file": "Preparation Exam/Prepa du CC 25-09-2025/Prepa Front du CC 25-09-2025.md",
-                    "mode": "source",
-                    "source": false
+                    "file": "z_img/36b104e6-17c9-4575-83a4-89b2a1f46c80.png"
                   },
-                  "icon": "lucide-file",
-                  "title": "Prepa Front du CC 25-09-2025"
+                  "icon": "lucide-image",
+                  "title": "36b104e6-17c9-4575-83a4-89b2a1f46c80"
+                }
+              },
+              {
+                "id": "66b60f061a5646aa",
+                "type": "leaf",
+                "state": {
+                  "type": "image",
+                  "state": {
+                    "file": "z_img/Pasted image 20250917104435.png"
+                  },
+                  "icon": "lucide-image",
+                  "title": "Pasted image 20250917104435"
                 }
               }
             ],
-            "currentTab": 2
+            "currentTab": 3
           },
           {
             "id": "36ad3285b1b6a1b0",
@@ -251,8 +261,11 @@
   },
   "active": "7c61d544adc08f03",
   "lastOpenFiles": [
+    "z_img/Pasted image 20250917104435.png",
+    "M2 MAIGE IPM.md",
+    "z_img/36b104e6-17c9-4575-83a4-89b2a1f46c80.png",
     "Preparation Exam/Prepa du CC 25-09-2025/Prepa Front du CC 25-09-2025.md",
-    "Pasted image 20250917104847.png",
+    "z_img/Pasted image 20250917104847.png",
     "Programmation Front/Exos/Exo 2 - Modelisation de composants.md",
     "Preparation Exam/Prepa du CC 25-09-2025/Introduction 25-09.md",
     "Preparation Exam/Prepa du CC 25-09-2025/Prepa Back du CC 25-09-2025.md",
@@ -265,15 +278,13 @@
     "Untitled 3.base",
     "Untitled 2.base",
     "Untitled 1.base",
-    "Pasted image 20250917104614.png",
-    "Pasted image 20250917104602.png",
-    "Pasted image 20250917104435.png",
+    "z_img/Pasted image 20250917104614.png",
+    "z_img/Pasted image 20250917104602.png",
     "Prog Objet/Exos/Exos.md",
     "Prog Objet/Exos/Exo 1.md",
     "Preparation Exam/Prepa du CC 25-09-2025",
     "Programmation Front/Exos/Exos 1 - Automates d'état - Exos.md",
     "Anglais/Anglais.md",
-    "36b104e6-17c9-4575-83a4-89b2a1f46c80.png",
     "z_img/Pasted image 20250916153553.png",
     "z_img/Pasted image 20250916153028.png",
     "z_img/Pasted image 20250916152128.png",
@@ -283,7 +294,6 @@
     "Programmation Front/Résumés/Résumés.md",
     "Prog Objet/Cours/Cours.md",
     "Prog Objet/Programmation Objet.md",
-    "M2 MAIGE IPM.md",
     "z_img/Pasted image 20250916115643.png",
     "z_img/Pasted image 20250916115706.png",
     "Integration et deploiement/Cours/Cours 4 - GitLab.md",
