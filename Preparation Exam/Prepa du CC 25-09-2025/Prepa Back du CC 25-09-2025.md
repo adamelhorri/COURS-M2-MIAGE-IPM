@@ -338,7 +338,7 @@ PlayerState <|.. Paused
 
 OK Adam — version **simple & pédagogique**, **PlantUML only**, **3 exemples**.
 
-### MVC
+## MVC
 
 - **Idée** : séparer **M**étier (Model), **V**isuel (View), **C**ontrôle (Controller).
     
@@ -361,7 +361,7 @@ OK Adam — version **simple & pédagogique**, **PlantUML only**, **3 exemples**
 
 ---
 
-## Exemple 1 — Compteur (boutons + slider)
+### Exemple 1 — Compteur (boutons + slider)
 
 Compteur : l’utilisateur clique/glisse, la View envoie l’intention au Controller. Le Controller met à jour `value` via `model.setValue(v)`. Le Model notifie et les vues relisent puis se mettent à jour
 ### Classes (PlantUML)
@@ -431,7 +431,7 @@ SliderView -> SliderView : relit Model
 
 ---
 
-## Exemple 2 — Todo List (ajouter / cocher)
+### Exemple 2 — Todo List (ajouter / cocher)
 
 Todo List : l’utilisateur saisit ou coche/decoche, les vues appellent le Controller. Le Controller ajoute ou bascule l’item dans le `TodoModel`. Le modèle notifie et la liste se re-rend avec l’état à jour.
 ### Classes (PlantUML)
@@ -503,7 +503,7 @@ V -> V : relit M + render()
 
 ---
 
-## Exemple 3 — Lecteur Audio (play/pause/stop)
+### Exemple 3 — Lecteur Audio (play/pause/stop)
 
 Lecteur audio : clic Play/Pause/Stop sur ButtonsView, le Controller reçoit l’action. Le Controller appelle `play/pause/stop` sur `PlayerModel` (état interne). Le modèle notifie et StatusView met à jour le statut.
 ### Classes (PlantUML)
@@ -571,13 +571,13 @@ SV -> SV : relit M + render()
 ```
 ## Historique des exos
 
-## Exercice — Modéliser une appli MVC + Observer (Java/Swing)
+### Exercice — Modéliser une appli MVC + Observer (Java/Swing)
 
-### Objectif
+#### Objectif
 
 Concevoir l’architecture **MVC** d’une mini-appli : un modèle entier `value`, des vues qui l’affichent, des contrôleurs (boutons/slider) qui le modifient. Produire les **diagrammes PlantUML** à chaque étape d’affinage.
 
-### Livrables
+#### Livrables
 
 1. Série de **diagrammes UML (PUML)** montrant l’évolution de la modélisation (étapes 1→6).
     
@@ -586,7 +586,7 @@ Concevoir l’architecture **MVC** d’une mini-appli : un modèle entier `value
 3. Une **liste de bonnes pratiques d’extension** (sans code).
     
 
-### Contraintes
+#### Contraintes
 
 - Séparation stricte **Model / View / Controller**.
     
@@ -597,7 +597,7 @@ Concevoir l’architecture **MVC** d’une mini-appli : un modèle entier `value
 
 ---
 
-### Étape 1 — Cadrage par packages (couplage global)
+#### Étape 1 — Cadrage par packages (couplage global)
 
 But : poser les **dépendances haut niveau**.
 
@@ -615,7 +615,7 @@ controller ..> model
 
 ---
 
-### Étape 2 — Modèle et Observer
+#### Étape 2 — Modèle et Observer
 
 But : définir l’**état** et le mécanisme de **notification**.
 
@@ -646,7 +646,7 @@ end note
 
 ---
 
-### Étape 3 — Vues textuelles
+#### Étape 3 — Vues textuelles
 
 But : deux vues **passives** qui observent le modèle.
 
@@ -672,7 +672,7 @@ model.Model "1" o-- "0..*" model.ModelListener
 ```
 
 ---
-### Étape 4 — Contrôleurs (boutons)
+#### Étape 4 — Contrôleurs (boutons)
 
 But : des **contrôleurs** qui traduisent les actions UI en **MAJ du modèle**.
 
@@ -701,7 +701,7 @@ package controller {
 
 ---
 
-## Étape 5 — Composition de fenêtre
+#### Étape 5 — Composition de fenêtre
 
 But : une **fenêtre** qui compose vues et branche les contrôleurs.
 
@@ -735,7 +735,7 @@ TextView  o--> Model
 
 ---
 
-## Étape 6 — Extension : Slider + Règle d’activation des boutons
+#### Étape 6 — Extension : Slider + Règle d’activation des boutons
 
 But : ajouter un **slider** couplé au modèle et une **vue de boutons** désactivant le bouton = valeur courante.
 
@@ -775,7 +775,7 @@ end note
 
 ---
 
-## Diagramme final — Vue d’ensemble
+#### Diagramme final — Vue d’ensemble
 
 ```plantuml
 @startuml
@@ -842,7 +842,7 @@ package controller {
 
 ---
 
-## Bonnes pratiques d’extension (sans code)
+#### Bonnes pratiques d’extension 
 
 - **SOC forte** : Model sans dépendances UI ; Vues sans logique métier ; Contrôleurs minces.
     
@@ -863,3 +863,118 @@ package controller {
 - **Concurrence UI** : MAJ de vues comme **réactions** aux notifications.
     
 - **Traçabilité** : snapshot PUML à chaque extension.
+
+## Exos modèles 
+### Objectif  
+Modéliser en MVC une mini-appli qui gère un niveau de luminosité (0–100).
+
+Exigences fonctionnelles
+
+- Un **Slider** ajuste le niveau.
+    
+- Trois **boutons 0/50/100** fixent la valeur.
+    
+- Le bouton correspondant à la valeur courante est **désactivé**.
+    
+- Deux vues textuelles :
+    
+    - `LevelView` (affiche le nombre),
+        
+    - `TextView` (affiche "Level = X").
+        
+
+Contraintes d’architecture
+
+- **Observer** : `ModelListener.modelChanged(Model)`.
+    
+- **Model** sans dépendance UI, notifie après changement.
+    
+- **Views** observent le modèle, pas de logique métier.
+    
+- **Controllers** traduisent l’UI en `model.setLevel(...)`.
+    
+- **MainWindow** compose les vues et branche les contrôleurs.
+    
+- Packages : `model`, `view`, `controller`.
+    
+
+Livrable attendu
+
+- Un **diagramme de classes PlantUML** montrant classes, interfaces, packages, associations, implémentations, compositions, multiplicités et la règle d’activation des boutons (note).
+    
+
+---
+
+### Correction (PUML)
+
+```plantuml
+@startuml
+title MVC - Brightness Controller (class diagram)
+
+package model {
+  class Model {
+    - level : int
+    + getLevel() : int
+    + setLevel(v:int) : void
+    + addListener(l:ModelListener) : void
+    + removeListener(l:ModelListener) : void
+  }
+  interface ModelListener {
+    + modelChanged(m:Model) : void
+  }
+  Model "1" o-- "0..*" ModelListener
+}
+
+package view {
+  class MainWindow
+  class LevelView
+  class TextView
+  class SliderView
+  class ButtonsView
+
+  LevelView   ..|> model.ModelListener
+  TextView    ..|> model.ModelListener
+  SliderView  ..|> model.ModelListener
+  ButtonsView ..|> model.ModelListener
+
+  MainWindow *-- LevelView
+  MainWindow *-- TextView
+  MainWindow *-- SliderView
+  MainWindow *-- ButtonsView
+
+  LevelView   o--> model.Model : model
+  TextView    o--> model.Model : model
+  SliderView  o--> model.Model : model
+  ButtonsView o--> model.Model : model
+}
+
+package controller {
+  interface ActionListener
+  interface ChangeListener
+
+  class Controller0
+  class Controller50
+  class Controller100
+  class SliderController
+
+  Controller0   ..|> ActionListener
+  Controller50  ..|> ActionListener
+  Controller100 ..|> ActionListener
+  SliderController ..|> ChangeListener
+
+  Controller0     o--> model.Model : model
+  Controller50    o--> model.Model : model
+  Controller100   o--> model.Model : model
+  SliderController o--> model.Model : model
+  SliderController ..> view.SliderView
+}
+
+note bottom of view.ButtonsView
+ButtonsView rule:
+- disable button 0 if level==0
+- disable button 50 if level==50
+- disable button 100 if level==100
+- reevaluate on each modelChanged
+end note
+@enduml
+```

@@ -4,13 +4,12 @@
     "type": "split",
     "children": [
       {
-        "id": "78588f453b7920c3",
+        "id": "365fa78d9e49bd9c",
         "type": "split",
         "children": [
           {
             "id": "5432e8da93ebb715",
             "type": "tabs",
-            "dimension": 80.62015503875969,
             "children": [
               {
                 "id": "19553e87a1980020",
@@ -67,51 +66,11 @@
             ]
           },
           {
-            "id": "36ad3285b1b6a1b0",
+            "id": "7e92349bcd3d1257",
             "type": "tabs",
-            "dimension": 19.379844961240313,
             "children": [
               {
-                "id": "7c61d544adc08f03",
-                "type": "leaf",
-                "pinned": true,
-                "state": {
-                  "type": "terminal:terminal",
-                  "state": {
-                    "terminal:terminal": {
-                      "cwd": "C:\\Users\\adame\\Documents\\IPM\\COURS-M2-MIAGE-IPM",
-                      "focus": false,
-                      "profile": {
-                        "args": [],
-                        "executable": "C:\\Windows\\System32\\cmd.exe",
-                        "name": "",
-                        "platforms": {
-                          "win32": true
-                        },
-                        "pythonExecutable": "python3",
-                        "restoreHistory": false,
-                        "rightClickAction": "copyPaste",
-                        "successExitCodes": [
-                          "0",
-                          "SIGINT",
-                          "SIGTERM"
-                        ],
-                        "terminalOptions": {
-                          "documentOverride": null
-                        },
-                        "type": "integrated",
-                        "useWin32Conhost": true
-                      },
-                      "serial": null
-                    }
-                  },
-                  "pinned": true,
-                  "icon": "terminal",
-                  "title": "Terminal: C:\\Windows\\System32\\conhost.exe"
-                }
-              },
-              {
-                "id": "356c831d7637c93a",
+                "id": "2807017a174f4a11",
                 "type": "leaf",
                 "pinned": true,
                 "state": {
@@ -149,8 +108,7 @@
                   "title": "Terminal: C:\\Windows\\System32\\conhost.exe"
                 }
               }
-            ],
-            "currentTab": 1
+            ]
           }
         ],
         "direction": "horizontal"
@@ -300,7 +258,7 @@
       "terminal:Open terminal": false
     }
   },
-  "active": "356c831d7637c93a",
+  "active": "2807017a174f4a11",
   "lastOpenFiles": [
     "Preparation Exam/Prepa du CC 25-09-2025/Prepa Back du CC 25-09-2025.md",
     "Prog Objet/Exos/Exo 1.md",
