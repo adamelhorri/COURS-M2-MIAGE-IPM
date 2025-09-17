@@ -1,6 +1,6 @@
 {
   "widthPercentage": 80,
-  "sliderWidth": 500,
+  "sliderWidth": 85,
   "defaultNoteWidth": 80,
   "yamlKey": "custom-width",
   "enableSlider": true,

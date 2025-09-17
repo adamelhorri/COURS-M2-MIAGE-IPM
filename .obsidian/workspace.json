@@ -13,31 +13,17 @@
             "dimension": 80.62015503875969,
             "children": [
               {
-                "id": "b1fa3eb270102c60",
-                "type": "leaf",
-                "state": {
-                  "type": "markdown",
-                  "state": {
-                    "file": "Preparation Exam/Prepa du CC 25-09-2025/Prepa Front du CC 25-09-2025.md",
-                    "mode": "source",
-                    "source": false
-                  },
-                  "icon": "lucide-file",
-                  "title": "Prepa Front du CC 25-09-2025"
-                }
-              },
-              {
                 "id": "19553e87a1980020",
                 "type": "leaf",
                 "state": {
                   "type": "markdown",
                   "state": {
-                    "file": "Preparation Exam/Prepa du CC 25-09-2025/Introduction 25-09.md",
+                    "file": "Preparation Exam/Prepa du CC 25-09-2025/Prepa Back du CC 25-09-2025.md",
                     "mode": "source",
                     "source": false
                   },
                   "icon": "lucide-file",
-                  "title": "Introduction 25-09"
+                  "title": "Prepa Back du CC 25-09-2025"
                 }
               },
               {
@@ -46,12 +32,12 @@
                 "state": {
                   "type": "markdown",
                   "state": {
-                    "file": "Preparation Exam/Prepa du CC 25-09-2025/Prepa Front du CC 25-09-2025.md",
+                    "file": "Prog Objet/Exos/Exo 1.md",
                     "mode": "source",
                     "source": false
                   },
                   "icon": "lucide-file",
-                  "title": "Prepa Front du CC 25-09-2025"
+                  "title": "Exo 1"
                 }
               },
               {
@@ -123,8 +109,48 @@
                   "icon": "terminal",
                   "title": "Terminal: C:\\Windows\\System32\\conhost.exe"
                 }
+              },
+              {
+                "id": "356c831d7637c93a",
+                "type": "leaf",
+                "pinned": true,
+                "state": {
+                  "type": "terminal:terminal",
+                  "state": {
+                    "terminal:terminal": {
+                      "cwd": "C:\\Users\\adame\\Documents\\IPM\\COURS-M2-MIAGE-IPM",
+                      "focus": false,
+                      "profile": {
+                        "args": [],
+                        "executable": "C:\\Windows\\System32\\cmd.exe",
+                        "name": "",
+                        "platforms": {
+                          "win32": true
+                        },
+                        "pythonExecutable": "python3",
+                        "restoreHistory": false,
+                        "rightClickAction": "copyPaste",
+                        "successExitCodes": [
+                          "0",
+                          "SIGINT",
+                          "SIGTERM"
+                        ],
+                        "terminalOptions": {
+                          "documentOverride": null
+                        },
+                        "type": "integrated",
+                        "useWin32Conhost": true
+                      },
+                      "serial": null
+                    }
+                  },
+                  "pinned": true,
+                  "icon": "terminal",
+                  "title": "Terminal: C:\\Windows\\System32\\conhost.exe"
+                }
               }
-            ]
+            ],
+            "currentTab": 1
           }
         ],
         "direction": "horizontal"
@@ -274,15 +300,17 @@
       "terminal:Open terminal": false
     }
   },
-  "active": "7c61d544adc08f03",
+  "active": "356c831d7637c93a",
   "lastOpenFiles": [
-    "Preparation Exam/Prepa du CC 25-09-2025/Prepa Front du CC 25-09-2025.md",
     "Preparation Exam/Prepa du CC 25-09-2025/Prepa Back du CC 25-09-2025.md",
+    "Prog Objet/Exos/Exo 1.md",
+    "Prog Objet/Exos/Exos.md",
+    "Programmation Front/Exos/Exo 2 - Modelisation de composants.md",
+    "Preparation Exam/Prepa du CC 25-09-2025/Prepa Front du CC 25-09-2025.md",
+    "Preparation Exam/Prepa du CC 25-09-2025/Introduction 25-09.md",
+    "Untitled.canvas",
     "Prog Objet/Cours/Cours.md",
     "Prog Objet/Cours/pdf/Programmation Objet Avancée 1.pdf",
-    "Prog Objet/Exos/Exo 1.md",
-    "Programmation Front/Exos/Exo 2 - Modelisation de composants.md",
-    "Preparation Exam/Prepa du CC 25-09-2025/Introduction 25-09.md",
     "z_img/Pasted image 20250917104435.png",
     "M2 MAIGE IPM.md",
     "z_img/36b104e6-17c9-4575-83a4-89b2a1f46c80.png",
@@ -298,7 +326,6 @@
     "Untitled 1.base",
     "z_img/Pasted image 20250917104614.png",
     "z_img/Pasted image 20250917104602.png",
-    "Prog Objet/Exos/Exos.md",
     "Programmation Front/Exos/Exos 1 - Automates d'état - Exos.md",
     "Anglais/Anglais.md",
     "z_img/Pasted image 20250916153553.png",

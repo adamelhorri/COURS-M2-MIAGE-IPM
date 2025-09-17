@@ -537,7 +537,7 @@ On modélise une **application avec quatre boutons** représentant les **saisons
 L’objectif est de représenter l’interaction entre les composants d’IHM (boutons, label) et le cœur de l’application (`Dialog`), ainsi que le rôle de l’adaptateur qui transforme les données avant l’affichage.
 
 Ici la modélisation :  
-![[Pasted image 20250916115706.png]]![[Pasted image 20250916115706.png]]
+![[Pasted image 20250916115706.png]]
 #### Exos à faire
 
 ##### Exo 3 — Barre de filtres des tâches
