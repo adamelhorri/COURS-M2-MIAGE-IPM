@@ -4,7 +4,7 @@ tags:
   - exam
   - resume
 ---
-Prepa de 
+Prepa de [[Integration et deploiement]] CC
 #  TP-1 Docker – Compte rendu
 
 ## 1. Installation de Docker

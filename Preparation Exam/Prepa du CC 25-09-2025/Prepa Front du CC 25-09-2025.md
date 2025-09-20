@@ -219,6 +219,7 @@ state Panne {
 ```
 
 #### Exos à faire
+##### Exo1
 On modélise un **tourniquet de métro** (barrière d’accès).
 
 - **États possibles :**
@@ -286,221 +287,435 @@ Locked --> Alarm : Fraud / ringAlarm()
 Alarm --> Locked : Reset / stopAlarm()
 @enduml
 ```
+##### Exo 2
+On veut modéliser une **machine à café automatique** :
 
+- **États :**
+    
+    - **Idle** : en attente d’un client.
+        
+    - **CoinInserted** : une pièce est insérée, attente du choix.
+        
+    - **Brewing** : préparation du café.
+        
+    - **Error** : erreur (p. ex. plus de gobelets).
+        
+- **Événements :**
+    
+    - `InsertCoin` : le client met une pièce.
+        
+    - `SelectCoffee` : le client appuie sur un bouton café.
+        
+    - `CupMissing` : la machine détecte qu’il n’y a pas de gobelet.
+        
+    - `Finish` : fin de préparation.
+        
+    - `Reset` : intervention du technicien pour réinitialiser.
+        
+- **Actions :**
+    
+    - `acceptCoin()` : valider la pièce.
+        
+    - `startBrew()` : lancer la préparation.
+        
+    - `serveCoffee()` : délivrer le café.
+        
+    - `raiseError()` : passer en erreur.
+        
+    - `resetError()` : corriger l’erreur.
+###### Automate
+```puml
+@startuml
+title Machine à café simple
 
+[*] --> Idle
 
+state Idle
+state CoinInserted
+state Brewing
+state Error
+
+'--- Attente -> Pièce insérée
+Idle --> CoinInserted : InsertCoin / acceptCoin()
+
+'--- Sélection -> Préparation
+CoinInserted --> Brewing : SelectCoffee / startBrew()
+
+'--- Détection erreur (pas de gobelet)
+CoinInserted --> Error : CupMissing / raiseError()
+
+'--- Préparation terminée
+Brewing --> Idle : Finish / serveCoffee()
+
+'--- Correction d’erreur
+Error --> Idle : Reset / resetError()
+@enduml
+
+```
+
+##### Exo 3
+On veut modéliser un petit lecteur de musique.
+
+##### États
+
+- **Stopped** : aucun morceau n’est en cours.
+    
+- **Playing** : lecture d’un morceau.
+    
+- **Paused** : morceau en pause.
+    
+- **Loading** : chargement d’un fichier audio.
+    
+- **Error** : erreur de lecture (fichier corrompu).
+    
+
+##### Événements
+
+- `Play` : démarrer la lecture ou reprendre après une pause.
+    
+- `Pause` : mettre en pause.
+    
+- `Stop` : arrêter.
+    
+- `Next` : passer au morceau suivant.
+    
+- `Prev` : morceau précédent.
+    
+- `Loaded` : fichier chargé avec succès.
+    
+- `Fail` : échec de chargement.
+    
+- `Reset` : réinitialiser après erreur.
+    
+
+##### Contraintes
+
+- Depuis l’état **Paused**, on ne peut **pas** utiliser `Next` ni `Prev` (on ne peut que reprendre `Play` ou `Stop`).
+    
+- Depuis l’état **Error**, on ne peut **pas** utiliser `Next` ni `Prev` non plus (on ne peut que `Reset`).
+    
+
+##### Actions
+
+- `startPlay()` : lancer la lecture.
+    
+- `pausePlay()` : mettre en pause.
+    
+- `stopPlay()` : arrêter la lecture.
+    
+- `loadFile()` : charger un fichier audio.
+    
+- `nextTrack()` : morceau suivant.
+    
+- `prevTrack()` : morceau précédent.
+    
+- `raiseError()` : passer en erreur.
+    
+- `clearError()` : corriger l’erreur
+
+```puml
+@startuml
+title Automate d'un lecteur MP3
+
+[*] --> Stopped
+
+state Stopped
+state Playing
+state Paused
+state Loading
+state Error
+
+'--- Lecture depuis arrêt
+Stopped --> Loading : Play / loadFile()
+
+'--- Chargement réussi ou échec
+Loading --> Playing : Loaded / startPlay()
+Loading --> Error   : Fail / raiseError()
+
+'--- Lecture en cours
+Playing --> Paused  : Pause / pausePlay()
+Playing --> Stopped : Stop / stopPlay()
+Playing --> Loading : Next / nextTrack()
+Playing --> Loading : Prev / prevTrack()
+
+'--- Depuis pause
+Paused --> Playing : Play / startPlay()
+Paused --> Stopped : Stop / stopPlay()
+
+'--- Erreur
+Error --> Stopped : Reset / clearError()
+@enduml
+```
+##### Exo 4 
+On veut modéliser le fonctionnement d’un DAB classique.
+
+##### États
+
+- **Idle** : en attente d’un client.
+    
+- **CardInserted** : carte insérée, attente du code PIN.
+    
+- **AuthOK** : authentification réussie, choix d’une opération.
+    
+- **AuthFail** : échec d’authentification.
+    
+- **Withdraw** : retrait en cours.
+    
+- **Deposit** : dépôt en cours.
+    
+- **Error** : erreur (carte bloquée, panne, etc.).
+    
+- **OutOfService** : distributeur hors service.
+    
+
+##### Événements
+
+- `InsertCard` : insertion d’une carte.
+    
+- `EnterPIN` : saisie correcte du code.
+    
+- `WrongPIN` : saisie incorrecte du code.
+    
+- `SelectWithdraw` : choix de retrait.
+    
+- `SelectDeposit` : choix de dépôt.
+    
+- `Complete` : opération terminée.
+    
+- `EjectCard` : retour de la carte.
+    
+- `BlockCard` : blocage de la carte.
+    
+- `ErrorOccur` : panne matérielle.
+    
+- `Repair` : remise en service.
+    
+
+##### Contraintes
+
+1. Depuis **Idle**, seule une insertion de carte est possible.
+    
+2. Depuis **CardInserted**, il faut obligatoirement valider un PIN correct pour continuer ; trois `WrongPIN` déclenchent `BlockCard` et mènent à **Error**.
+    
+3. Depuis **AuthOK**, seul un choix d’opération est permis (`Withdraw` ou `Deposit`).
+    
+4. Une fois l’opération terminée, on revient à **Idle** après `EjectCard`.
+    
+5. En cas de panne (`ErrorOccur`), le système bascule en **OutOfService**, seule l’action `Repair` le ramène à **Idle**.
+    
+
+##### Actions
+
+- `checkPIN()` : vérifier le code.
+    
+- `grantAccess()` : donner accès au menu.
+    
+- `denyAccess()` : refuser.
+    
+- `startWithdraw()` : lancer un retrait.
+    
+- `startDeposit()` : lancer un dépôt.
+    
+- `returnCard()` : rendre la carte.
+    
+- `blockCard()` : bloquer la carte.
+    
+- `signalError()` : signaler une panne.
+    
+- `restoreService()` : remettre en marche.
+  ###### Automate 
+```puml 
+@startuml
+title Automate d’un distributeur de billets (DAB)
+
+[*] --> Idle
+
+state Idle
+state CardInserted
+state AuthOK
+state AuthFail
+state Withdraw
+state Deposit
+state Error
+state OutOfService
+
+'--- Carte
+Idle --> CardInserted : InsertCard
+CardInserted --> AuthOK   : EnterPIN / grantAccess()
+CardInserted --> AuthFail : WrongPIN / denyAccess()
+
+'--- Authentification
+AuthFail --> Error : BlockCard / blockCard()
+AuthOK --> Withdraw : SelectWithdraw / startWithdraw()
+AuthOK --> Deposit  : SelectDeposit / startDeposit()
+
+'--- Fin opérations
+Withdraw --> Idle : Complete + EjectCard / returnCard()
+Deposit  --> Idle : Complete + EjectCard / returnCard()
+
+'--- Erreurs et pannes
+CardInserted --> OutOfService : ErrorOccur / signalError()
+AuthOK --> OutOfService       : ErrorOccur / signalError()
+Withdraw --> OutOfService     : ErrorOccur / signalError()
+Deposit --> OutOfService      : ErrorOccur / signalError()
+Error --> OutOfService        : ErrorOccur / signalError()
+
+OutOfService --> Idle : Repair / restoreService()
+
+@enduml
+
+```
+##### Exo 5 : 
+On modélise une application web classique (par ex. un site e-commerce).  
+Un utilisateur peut naviguer, se connecter, et se déconnecter. Le système gère aussi les erreurs de session et le temps d’expiration.
+
+##### États (En)
+
+- **E1** : Session inactive (utilisateur non connecté).
+    
+- **E2** : Authentification en cours (login en traitement).
+    
+- **E3** : Session active (utilisateur connecté).
+    
+- **E4** : Session expirée (timeout).
+    
+- **E5** : Erreur (mauvais identifiants, bug, etc.).
+    
+
+##### Événements (Cn)
+
+- **C1** : Demande de login (formulaire soumis).
+    
+- **C2** : Authentification réussie.
+    
+- **C3** : Authentification échouée.
+    
+- **C4** : Déconnexion manuelle.
+    
+- **C5** : Timeout (session trop longue).
+    
+- **C6** : Reset après erreur.
+    
+
+##### Actions (An)
+
+- **A1** : Vérifier identifiants.
+    
+- **A2** : Créer session utilisateur.
+    
+- **A3** : Fermer session utilisateur.
+    
+- **A4** : Déclencher message d’erreur.
+    
+- **A5** : Nettoyer et réinitialiser.
+    
+
+---
+
+👉 Exemple de transitions :
+
+- `E1 --C1/A1--> E2` : depuis “non connecté”, on soumet le login, l’appli vérifie les identifiants.
+    
+- `E2 --C2/A2--> E3` : si c’est correct, création de session → utilisateur connecté.
+    
+- `E2 --C3/A4--> E5` : si c’est faux, on bascule en erreur.
+    
+- `E3 --C4/A3--> E1` : déconnexion.
+    
+- `E3 --C5/A3--> E4` : session expirée automatiquement.
+    
+- `E5 --C6/A5--> E1` : reset pour revenir à l’état initial.
+
+###### Automate
+```puml
+@startuml
+title Application Web – Gestion de session utilisateur (notation En/Cn/An)
+
+[*] --> E1
+
+' --- Etats
+state E1 : Session inactive
+state E2 : Authentification en cours
+state E3 : Session active
+state E4 : Session expirée
+state E5 : Erreur
+
+' --- Transitions principales
+E1 --> E2 : C1 / A1
+E2 --> E3 : C2 / A2
+E2 --> E5 : C3 / A4
+E3 --> E1 : C4 / A3
+E3 --> E4 : C5 / A3
+E5 --> E1 : C6 / A5
+
+' --- Contraintes implicites
+' - C1 n’est pas autorisé depuis E3
+' - C5 n’est valable que depuis E3
+' - C6 n’est valable que depuis E5
+
+@enduml
+
+```
 ### Diagrammes de composants personalisés
 #### Historique
+##### EX1 
+###### Description de l'application
 
-##### Exo 1
-
-On souhaite modéliser une **application de gestion et de tri des produits**.  
-L’interface propose plusieurs éléments de filtrage :
-
-- Un **champ de recherche textuel** permettant de saisir un motif pour filtrer les produits affichés.
-    
-- Une **case à cocher** permettant de choisir si l’on souhaite afficher uniquement les produits en stock.
-    
-- Un **slider (curseur)** permettant de définir un **prix maximal** afin de restreindre la liste affichée.
-    
 ![[Pasted image 20250909144346.png]]
-L’utilisateur peut donc combiner ces trois filtres pour explorer le catalogue. Chaque composant de l’IHM déclenche un événement (`OnChange`) qui est centralisé dans le composant parent `SearchBar`, lequel se charge d’émettre les signaux de mise à jour vers la partie affichage de l’application.
+###### Modèle 
 
-Ici la modélisation :  
 ![[Pasted image 20250909150832.png]]
-
----
-
 ##### Exo 2
+Description de l'application 
+![[Pasted image 20250916115842.png]]
 
-On modélise une **application avec quatre boutons** représentant les **saisons** : _Spring, Summer, Fall, Winter_.
+###### Modèle
+Le diagramme correspond à un **pattern Adapter**.
 
-- Chaque bouton correspond à une transition vers une saison spécifique (`toSpring`, `toSummer`, `toFall`, `toWinter`).
-    
-- Lorsqu’un bouton est cliqué (`onClick`), un événement est envoyé au composant parent `Dialog`.
-    
-- Le `Dialog` centralise les états et gère l’affichage de la saison courante grâce à un label relié par un adaptateur.
-    
-- Certains boutons peuvent être désactivés selon le contexte (par exemple : `Enabled = false`).
-    
-![[Pasted image 20250917104847.png]]
-L’objectif est de représenter l’interaction entre les composants d’IHM (boutons, label) et le cœur de l’application (`Dialog`), ainsi que le rôle de l’adaptateur qui transforme les données avant l’affichage.
 
-Ici la modélisation :  
+- La classe **Adapter** est présente explicitement (rectangle rose).
+    
+- Les boutons (Spring, Summer, Fall, Winter) envoient des événements (`onClick → toSpring`, `toSummer`, etc.) vers un composant principal (**Dialog**).
+    
+- L’**Adapter** sert d’intermédiaire pour **traduire l’appel** entre la source (les boutons, labels) et la cible (Dialog qui affiche la saison).
+    
+
+C’est exactement le rôle du **design pattern Adapter** :
+
+- **But** : faire en sorte que des classes qui n’ont pas la même interface puissent collaborer.
+    
+- Ici, les **boutons** exposent une interface (onClick), et le **Dialog** attend des appels (`displaySeason`). L’Adapter s’interpose pour convertir les appels et les relier.
 ![[Pasted image 20250916115706.png]]
-#### Exos à faire
+#### Exos à faire :
+##### Exo1
+### Composants attendus
 
-##### Exo 3 — Barre de filtres des tâches
-
-**Énoncé.** Modéliser une barre de filtres pour une liste de tâches : recherche textuelle, affichage « terminées uniquement », et priorité maximale. Les trois entrées doivent notifier un composant central qui diffuse les changements au tableau.
-
-**Corrigé (liste).**
-
-- **Composants**
+- **LoginForm** (conteneur principal).
     
-    - `TaskFilterBar` (central)
-        
-    - `Input Search`
-        
-    - `Checkbox CompletedOnly`
-        
-    - `Range MaxPriority`
-        
-    - `TasksTable`
-        
-- **Attributs**
+- **InputUsername** (zone de saisie du nom d’utilisateur).
     
-    - `Input Search` : `Placeholder`, `Text`
-        
-    - `Checkbox CompletedOnly` : `Checked`, `Label`
-        
-    - `Range MaxPriority` : `min`, `max`, `value`, `labelText`
-        
-    - `TaskFilterBar` : (—)
-        
-    - `TasksTable` : (—)
-        
-- **Liens / Événements**
+- **InputPassword** (zone de saisie du mot de passe).
     
-    - `Input Search` — `onChange(String)` → `TaskFilterBar` (event : `SearchPatternChange`)
-        
-    - `Checkbox CompletedOnly` — `onChange(Boolean)` → `TaskFilterBar` (event : `CompletedOnlyChange`)
-        
-    - `Range MaxPriority` — `onChange(Number)` → `TaskFilterBar` (event : `MaxPriorityChange`)
-        
-    - `TaskFilterBar` → `TasksTable` (events : `SearchPatternChange`, `CompletedOnlyChange`, `MaxPriorityChange`)
-        
-
----
-
-##### Exo 4 — Contrôles audio basiques
-
-**Énoncé.** Modéliser les contrôles d’un mini-lecteur : boutons **Play**, **Pause**, **Stop**, un **slider Volume**, et un **Label** affichant l’état courant via un adaptateur.
-
-**Corrigé (liste).**
-
-- **Composants**
+- **CheckboxRememberMe** (mémoriser l’utilisateur).
     
-    - `Player` (central)
-        
-    - `Button Play`, `Button Pause`, `Button Stop`
-        
-    - `Range Volume`
-        
-    - `Label State`
-        
-    - `Adapter` (formatte l’état en texte)
-        
-- **Attributs**
+- **ButtonLogin** (bouton de connexion).
     
-    - `Button *` : `Enabled`, `Label`
-        
-    - `Range Volume` : `min`, `max`, `value`, `labelText`
-        
-    - `Label State` : `Label`
-        
-    - `Player` : (—) ; `Adapter` : (—)
-        
-- **Liens / Événements**
+- **MenuHelp** (menu d’aide ou “Mot de passe oublié ?”).
     
-    - `Button Play` — `onClick`/`toPlay` → `Player`
-        
-    - `Button Pause` — `onClick`/`toPause` → `Player`
-        
-    - `Button Stop` — `onClick`/`toStop` → `Player`
-        
-    - `Range Volume` — `onChange(Number)`/`volumeChange` → `Player`
-        
-    - `Player` — `stateChange(String)` → `Adapter` → `Label State`
-        
-    - (optionnel) `Player` — `setPauseEnabled(Boolean)` → `Button Pause`
-        
 
----
+### Connecteurs
 
-##### Exo 5 — Modal de confirmation
-
-**Énoncé.** Modéliser une fenêtre modale ouverte par un bouton **Open**. Dans la modale : **Confirm**, **Cancel**, une case **Don’t ask again**. Le label d’état affiche la dernière action via un adaptateur. Le bouton **Confirm** peut être (dés)activé par la modale.
-
-**Corrigé (liste).**
-
-- **Composants**
+- `InputUsername --> LoginForm` (appartient au formulaire).
     
-    - `Modal` (central)
-        
-    - `Button Open`, `Button Confirm`, `Button Cancel`
-        
-    - `Checkbox DontAskAgain`
-        
-    - `Label Status`
-        
-    - `Adapter`
-        
-- **Attributs**
+- `InputPassword --> LoginForm`.
     
-    - `Button *` : `Enabled`, `Label`
-        
-    - `Checkbox DontAskAgain` : `Checked`, `Label`
-        
-    - `Label Status` : `Label`
-        
-    - `Modal`, `Adapter` : (—)
-        
-- **Liens / Événements**
+- `CheckboxRememberMe --> LoginForm`.
     
-    - `Button Open` — `onClick`/`open` → `Modal`
-        
-    - `Button Confirm` — `onClick`/`confirm` → `Modal`
-        
-    - `Button Cancel` — `onClick`/`cancel` → `Modal`
-        
-    - `Checkbox DontAskAgain` — `onChange(Boolean)`/`prefChange` → `Modal`
-        
-    - `Modal` — `statusChange(String)` → `Adapter` → `Label Status`
-        
-    - `Modal` — `setConfirmEnabled(Boolean)` → `Button Confirm`
-        
-
----
-
-##### Exo 6 — Sélecteur de devise
-
-**Énoncé.** Modéliser un sélecteur de devise avec trois boutons **EUR/USD/GBP**, un **input montant**, et un **label** qui affiche « {amount} {currency} » via adaptateur. Le composant central gère la devise sélectionnée et le montant.
-
-**Corrigé (liste).**
-
-- **Composants**
+- `ButtonLogin --> LoginForm`.
     
-    - `CurrencyDialog` (central)
-        
-    - `Button EUR`, `Button USD`, `Button GBP`
-        
-    - `Input Amount`
-        
-    - `Label Preview`
-        
-    - `Adapter`
-        
-- **Attributs**
+- `MenuHelp --> LoginForm`.
     
-    - `Button *` : `Enabled`, `Label`
-        
-    - `Input Amount` : `Placeholder`, `Text` (numérique)
-        
-    - `Label Preview` : `Label`
-        
-    - `CurrencyDialog`, `Adapter` : (—)
-        
-- **Liens / Événements**
-    
-    - `Button EUR` — `onClick`/`toEUR` → `CurrencyDialog`
-        
-    - `Button USD` — `onClick`/`toUSD` → `CurrencyDialog`
-        
-    - `Button GBP` — `onClick`/`toGBP` → `CurrencyDialog`
-        
-    - `Input Amount` — `onChange(String|Number)`/`amountChange` → `CurrencyDialog`
-        
-    - `CurrencyDialog` — `previewChange(String)` → `Adapter` → `Label Preview`
-        
-    - (optionnel) `CurrencyDialog` — `setButtonEnabled(Boolean)` → `Button *` (selon règles métier)
+
+Quand l’utilisateur clique sur **ButtonLogin**, le **LoginForm** envoie les infos au **Controller** (non représenté ici, hors périmètre).
+
+

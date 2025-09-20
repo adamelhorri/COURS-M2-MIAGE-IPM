@@ -4,116 +4,101 @@
     "type": "split",
     "children": [
       {
-        "id": "365fa78d9e49bd9c",
-        "type": "split",
+        "id": "8529b2574db41870",
+        "type": "tabs",
+        "dimension": 68.01705756929638,
         "children": [
           {
-            "id": "5432e8da93ebb715",
-            "type": "tabs",
-            "dimension": 79.16666666666666,
-            "children": [
-              {
-                "id": "19553e87a1980020",
-                "type": "leaf",
-                "state": {
-                  "type": "markdown",
-                  "state": {
-                    "file": "Preparation Exam/Prepa du CC 25-09-2025/Prepa Front du CC 25-09-2025.md",
-                    "mode": "source",
-                    "source": false
-                  },
-                  "icon": "lucide-file",
-                  "title": "Prepa Front du CC 25-09-2025"
-                }
+            "id": "bf3d65ffef179b87",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Preparation Exam/Prepa du CC 25-09-2025/Prepa Front du CC 25-09-2025.md",
+                "mode": "source",
+                "source": false
               },
-              {
-                "id": "149c90541afedc70",
-                "type": "leaf",
-                "state": {
-                  "type": "markdown",
-                  "state": {
-                    "file": "Prog Objet/Exos/Exo 1.md",
-                    "mode": "source",
-                    "source": false
-                  },
-                  "icon": "lucide-file",
-                  "title": "Exo 1"
-                }
+              "icon": "lucide-file",
+              "title": "Prepa Front du CC 25-09-2025"
+            }
+          }
+        ]
+      },
+      {
+        "id": "5432e8da93ebb715",
+        "type": "tabs",
+        "dimension": 31.982942430703627,
+        "children": [
+          {
+            "id": "19553e87a1980020",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Integration et deploiement/Cours/Cours 5 - GitLab.md",
+                "mode": "source",
+                "source": false
               },
-              {
-                "id": "5fe05bef87d0cd17",
-                "type": "leaf",
-                "state": {
-                  "type": "image",
-                  "state": {
-                    "file": "z_img/36b104e6-17c9-4575-83a4-89b2a1f46c80.png"
-                  },
-                  "icon": "lucide-image",
-                  "title": "36b104e6-17c9-4575-83a4-89b2a1f46c80"
-                }
-              },
-              {
-                "id": "66b60f061a5646aa",
-                "type": "leaf",
-                "state": {
-                  "type": "image",
-                  "state": {
-                    "file": "z_img/Pasted image 20250917104435.png"
-                  },
-                  "icon": "lucide-image",
-                  "title": "Pasted image 20250917104435"
-                }
-              }
-            ]
+              "icon": "lucide-file",
+              "title": "Cours 5 - GitLab"
+            }
           },
           {
-            "id": "7e92349bcd3d1257",
-            "type": "tabs",
-            "dimension": 20.833333333333336,
-            "children": [
-              {
-                "id": "2807017a174f4a11",
-                "type": "leaf",
-                "pinned": true,
-                "state": {
-                  "type": "terminal:terminal",
-                  "state": {
-                    "terminal:terminal": {
-                      "cwd": "C:\\Users\\adame\\Documents\\IPM\\COURS-M2-MIAGE-IPM",
-                      "focus": false,
-                      "profile": {
-                        "args": [],
-                        "executable": "C:\\Windows\\System32\\cmd.exe",
-                        "name": "",
-                        "platforms": {
-                          "win32": true
-                        },
-                        "pythonExecutable": "python3",
-                        "restoreHistory": false,
-                        "rightClickAction": "copyPaste",
-                        "successExitCodes": [
-                          "0",
-                          "SIGINT",
-                          "SIGTERM"
-                        ],
-                        "terminalOptions": {
-                          "documentOverride": null
-                        },
-                        "type": "integrated",
-                        "useWin32Conhost": true
-                      },
-                      "serial": null
-                    }
-                  },
-                  "pinned": true,
-                  "icon": "terminal",
-                  "title": "Terminal: C:\\Windows\\System32\\conhost.exe - git  commit"
-                }
-              }
-            ]
+            "id": "149c90541afedc70",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Prog Objet/Exos/Exo 1.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Exo 1"
+            }
+          },
+          {
+            "id": "49250058369d768c",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Programmation Front/Exos/Exo 2 - Modelisation de composants.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Exo 2 - Modelisation de composants"
+            }
+          },
+          {
+            "id": "2463068814cb3a2b",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Programmation Front/Cours/Cours.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Cours"
+            }
+          },
+          {
+            "id": "66b60f061a5646aa",
+            "type": "leaf",
+            "state": {
+              "type": "image",
+              "state": {
+                "file": "z_img/Pasted image 20250917104435.png"
+              },
+              "icon": "lucide-image",
+              "title": "Pasted image 20250917104435"
+            }
           }
         ],
-        "direction": "horizontal"
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -260,22 +245,28 @@
       "terminal:Open terminal": false
     }
   },
-  "active": "2807017a174f4a11",
+  "active": "bf3d65ffef179b87",
   "lastOpenFiles": [
+    "Programmation Front/Exos/Exo 2 - Modelisation de composants.md",
     "Preparation Exam/Prepa du CC 25-09-2025/Prepa Front du CC 25-09-2025.md",
     "Preparation Exam/Prepa du CC 25-09-2025/Prepa Back du CC 25-09-2025.md",
+    "Programmation Front/Cours/Cours.md",
     "Preparation Exam/Prepa de l'Oral CICD 26-09-2025/Prepa de l'Oral CICD 26-09-2025.md",
+    "z_img/36b104e6-17c9-4575-83a4-89b2a1f46c80.png",
+    "Integration et deploiement/Cours/Cours 5 - GitLab.md",
+    "Integration et deploiement/Cours/Cours 4 - Kubernits.md",
+    "Integration et deploiement/Cours/Cours 3 - Docker - Conteneurisation.md",
+    "Integration et deploiement/Cours/Cours 2 - Source - Bonnes pratiques GIT.md",
+    "Integration et deploiement/Cours/Cours 1 - Intro.md",
     "Integration et deploiement/Integration et deploiement.md",
     "Preparation Exam/Prepa de l'Oral CICD 26-09-2025",
     "Preparation Exam/Prepa du TP noté 25-09-2025/Prepa du TP noté 25-09-2025.md",
-    "z_img/36b104e6-17c9-4575-83a4-89b2a1f46c80.png",
     "Preparation Exam/Prepa du TP noté 25-09-2025",
     "M2 MAIGE IPM.md",
     "Dates exams.md",
     "Preparation Exam/Prepa du CC 25-09-2025/PE CC Introduction 25-09.md",
     "Prog Objet/Exos/Exo 1.md",
     "Prog Objet/Exos/Exos.md",
-    "Programmation Front/Exos/Exo 2 - Modelisation de composants.md",
     "Untitled.canvas",
     "Prog Objet/Cours/Cours.md",
     "Prog Objet/Cours/pdf/Programmation Objet Avancée 1.pdf",
@@ -297,17 +288,10 @@
     "z_img/Pasted image 20250916152128.png",
     "Programmation Front/Exos/Exos.md",
     "Programmation Front/Programmation Front.md",
-    "Programmation Front/Cours/Cours.md",
     "Programmation Front/Résumés/Résumés.md",
     "Prog Objet/Programmation Objet.md",
     "z_img/Pasted image 20250916115643.png",
     "z_img/Pasted image 20250916115706.png",
-    "Integration et deploiement/Cours/Cours 4 - GitLab.md",
-    "Integration et deploiement/Cours/Cours 4 - Kubernits.md",
-    "Repos GIT.md",
-    "Integration et deploiement/Exos/Exos.md",
-    "Integration et deploiement/Resumés/Résumés.md",
-    "README.md",
-    "Integration et deploiement/Cours/Cours.md"
+    "Repos GIT.md"
   ]
 }
