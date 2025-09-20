@@ -218,286 +218,76 @@ state Panne {
 @enduml
 ```
 
-###### Table de transition (Matrice État / Événement) — Exo 5
-
-| État                | CStart                                          | CStop  | CPanne                               | timer                 | tr                         | to                         | tv                         | tpo                        | tpe                        |
-|---------------------|--------------------------------------------------|--------|--------------------------------------|-----------------------|----------------------------|----------------------------|----------------------------|----------------------------|----------------------------|
-| Off                 | ⇒ Marche.Rouge *(si mode=Marche)*<br>⇒ Panne.OrangeOn *(si mode=Panne)* | X      | ⇒ Off / mode ↔                       | X                     | X                          | X                          | X                          | X                          | X                          |
-| Marche.Rouge        | X                                                | ⇒ Off  | ⇒ Panne.OrangeOn / mode="Panne"      | ⇒ Rouge / t+=1        | ⇒ Orange \[t≥10] / t=0     | X                          | X                          | X                          | X                          |
-| Marche.Orange       | X                                                | ⇒ Off  | ⇒ Panne.OrangeOn / mode="Panne"      | ⇒ Orange / t+=1       | X                          | ⇒ Vert \[t≥5] / t=0        | X                          | X                          | X                          |
-| Marche.Vert         | X                                                | ⇒ Off  | ⇒ Panne.OrangeOn / mode="Panne"      | ⇒ Vert / t+=1         | X                          | X                          | ⇒ Rouge \[t≥20] / t=0      | X                          | X                          |
-| Panne.OrangeOn      | X                                                | ⇒ Off  | ⇒ Marche.Rouge / mode="Marche"       | ⇒ OrangeOn / t+=1     | X                          | X                          | X                          | ⇒ OrangeOff \[t≥6] / t=0   | X                          |
-| Panne.OrangeOff     | X                                                | ⇒ Off  | ⇒ Marche.Rouge / mode="Marche"       | ⇒ OrangeOff / t+=1    | X                          | X                          | X                          | X                          | ⇒ OrangeOn \[t≥4] / t=0    |
-
 #### Exos à faire
+On modélise un **tourniquet de métro** (barrière d’accès).
 
-##### Exo 5
-
-On souhaite modéliser le fonctionnement d’un sélecteur d’onglets numérotés de **1 à 4**.
-
-- L’utilisateur peut cliquer sur un bouton **Next (NX)** pour passer à l’onglet suivant.
+- **États possibles :**
     
-- Lorsqu’on est sur l’onglet **4**, un clic sur **NX** ramène automatiquement à l’onglet **1** (fonctionnement circulaire).
-    
-- De la même façon, un clic sur **Prev (PV)** ramène à l’onglet précédent. Si l’on est sur l’onglet **1** et que l’on clique sur **PV**, on revient à l’onglet **4**.
-    
-- Enfin, une touche **Home (H)** permet de revenir directement à l’onglet **1** depuis n’importe quel état.
-    
-
-L’automate doit représenter ce comportement cyclique et la priorité de la commande **Home**.
-
-###### **Automate d'état** :
-
-```mermaid
-stateDiagram-v2
-    [*] --> E1
-
-    E1 --> E2 : NX
-    E2 --> E3 : NX
-    E3 --> E4 : NX
-    E4 --> E1 : NX
-
-    E1 --> E4 : PV
-    E4 --> E3 : PV
-    E3 --> E2 : PV
-    E2 --> E1 : PV
-
-    E2 --> E1 : H
-    E3 --> E1 : H
-    E4 --> E1 : H
-    E1 --> E1 : H
-```
-
-###### Table de transition (Matrice État / Événement)
-
-|État|NX|PV|H|
-|---|---|---|---|
-|E1|⇒ E2|⇒ E4|⇒ E1|
-|E2|⇒ E3|⇒ E1|⇒ E1|
-|E3|⇒ E4|⇒ E2|⇒ E1|
-|E4|⇒ E1|⇒ E3|⇒ E1|
-
----
-
-##### Exo 6
-
-On cherche à modéliser un petit **lecteur audio** avec trois états principaux : **Stopped**, **Playing**, et **Paused**.
-
-- Depuis l’état **Stopped**, on peut démarrer la lecture avec l’événement **Play (PL)**.
-    
-- Une fois en **Playing**, l’utilisateur peut :
-    
-    - mettre en pause avec **Pause (PA)**,
+    - **Verrouillé** (personne ne peut passer).
         
-    - arrêter complètement avec **Stop (ST)**,
+    - **Déverrouillé** (une personne peut passer).
         
-    - ou bien laisser le **timer** avancer pour simuler la lecture du morceau.
+    - **Alarme** (si fraude).
         
-- Si le morceau arrive à sa fin (**END**), on revient automatiquement à l’état **Stopped**.
+- **Événements :**
     
-- Depuis **Paused**, un clic sur **Play (PL)** reprend la lecture, un clic sur **Stop (ST)** arrête, et un nouveau clic sur **Pause (PA)** maintient la pause.
+    - `Coin` : un voyageur insère un ticket/pièce.
+        
+    - `Push` : un voyageur pousse la barrière.
+        
+    - `Fraud` : un voyageur force le passage sans payer.
+        
+    - `Reset` : un agent réinitialise le système.
+        
+- **Actions :**
     
+    - `unlock()` : ouvrir la barrière.
+        
+    - `lock()` : refermer la barrière.
+        
+    - `ringAlarm()` : déclencher l’alarme.
+        
+    - `stopAlarm()` : arrêter l’alarme.
+        
+- **Règles de fonctionnement :**
+    
+    - Au départ, le tourniquet est **Verrouillé**.
+        
+    - Si l’on insère un **ticket (Coin)**, il se **déverrouille** (`unlock()`).
+        
+    - Si on pousse la barrière (**Push**) alors qu’elle est déverrouillée, on passe → retour en **Verrouillé** (`lock()`).
+        
+    - Si on pousse sans ticket (**Push** en Verrouillé), l’**alarme** se déclenche (`ringAlarm()`).
+        
+    - Un agent peut **Reset** depuis l’alarme pour revenir en Verrouillé (`stopAlarm()`).
 
-L’automate doit gérer ces transitions, y compris les clics redondants.
-###### **Automate d'état**
-
-```plantuml
+###### Automate :
+```puml
 @startuml
-title Audio Player – Stopped/Playing/Paused
+title Tourniquet de métro
 
-[*] --> E1
-state E1 as "Stopped"
-state E2 as "Playing"
-state E3 as "Paused"
+[*] --> Locked
 
-E1 --> E2 : PL
+state Locked
+state Unlocked
+state Alarm
 
-E2 --> E3 : PA
-E2 --> E1 : ST
-E2 --> E2 : timer / t+=1
-E2 --> E1 : END / t=0
+'--- Locked -> Unlocked
+Locked --> Unlocked : Coin / unlock()
 
-E3 --> E2 : PL
-E3 --> E1 : ST
-E3 --> E3 : PA
+'--- Unlocked -> Locked
+Unlocked --> Locked : Push / lock()
 
-E1 --> E1 : ST
+'--- Locked -> Alarm (fraude)
+Locked --> Alarm : Push / ringAlarm()
+Locked --> Alarm : Fraud / ringAlarm()
+
+'--- Alarm -> Locked (reset)
+Alarm --> Locked : Reset / stopAlarm()
 @enduml
 ```
 
-###### Table de transition (Matrice État / Événement)
 
-|État|PL|PA|ST|timer|END|
-|---|---|---|---|---|---|
-|E1 Stopped|⇒ E2|X|⇒ E1|X|X|
-|E2 Playing|⇒ E3|⇒ E3|⇒ E1|⇒ E2 / t+=1|⇒ E1|
-|E3 Paused|⇒ E2|⇒ E3|⇒ E1|X|X|
-
----
-
-##### Exo 7
-
-On dispose d’un **panier d’achats limité à 3 articles maximum**.
-
-- Les actions possibles sont :
-    
-    - **ADD** : ajouter un article,
-        
-    - **REM** : retirer un article,
-        
-    - **CLR** : vider complètement le panier.
-        
-- Si le panier est vide (0) et que l’on retire un article (**REM**), l’action est ignorée (on reste à 0).
-    
-- Si le panier est plein (3 articles) et que l’on ajoute (**ADD**) encore un article, l’action est également ignorée (on reste à 3).
-    
-- La commande **CLR** ramène toujours le panier à l’état vide, quel que soit le nombre d’articles.
-    
-
-L’automate doit donc gérer un **compteur borné** avec une borne inférieure à 0 et une borne supérieure à 3.
-
-###### **Automate d'état**
-
-```mermaid
-stateDiagram-v2
-    [*] --> E0
-    state E0: count=0
-    state E1: count=1
-    state E2: count=2
-    state E3: count=3 (max)
-
-    E0 --> E1 : ADD
-    E1 --> E2 : ADD
-    E2 --> E3 : ADD
-    E3 --> E3 : ADD  ' ignoré (reste à max)
-
-    E1 --> E0 : REM
-    E2 --> E1 : REM
-    E3 --> E2 : REM
-    E0 --> E0 : REM  ' ignoré (déjà 0)
-
-    E0 --> E0 : CLR
-    E1 --> E0 : CLR
-    E2 --> E0 : CLR
-    E3 --> E0 : CLR
-```
-
-###### Table de transition (Matrice État / Événement)
-
-|État|ADD|REM|CLR|
-|---|---|---|---|
-|E0 (0)|⇒ E1|⇒ E0|⇒ E0|
-|E1 (1)|⇒ E2|⇒ E0|⇒ E0|
-|E2 (2)|⇒ E3|⇒ E1|⇒ E0|
-|E3 (3 max)|⇒ E3|⇒ E2|⇒ E0|
-
----
-
-##### Exo 8
-
-On modélise un **ascenseur simple** fonctionnant dans un immeuble de 3 étages : **F1, F2, F3**.
-
-- Depuis chaque étage, on peut utiliser la commande **UP** (monter) ou **DOWN** (descendre).
-    
-- Si l’ascenseur est déjà au **dernier étage (F3)**, un ordre **UP** n’a aucun effet.
-    
-- Si l’ascenseur est déjà au **rez-de-chaussée (F1)**, un ordre **DOWN** n’a aucun effet.
-    
-- À tout moment, un ordre **RST (Reset)** ramène directement l’ascenseur à l’étage **F1**.
-    
-
-Cet automate illustre un déplacement **borné et dirigé** avec une commande de réinitialisation globale.
-
-###### **Automate d'état**
-
-```plantuml
-@startuml
-title Ascenseur – 3 étages
-
-[*] --> F1
-state F1
-state F2
-state F3
-
-' Montée
-F1 --> F2 : UP
-F2 --> F3 : UP
-F3 --> F3 : UP  ' ignoré
-
-' Descente
-F3 --> F2 : DOWN
-F2 --> F1 : DOWN
-F1 --> F1 : DOWN ' ignoré
-
-' Reset
-F1 --> F1 : RST
-F2 --> F1 : RST
-F3 --> F1 : RST
-@enduml
-```
-
-###### Table de transition (Matrice État / Événement)
-
-|État|UP|DOWN|RST|
-|---|---|---|---|
-|F1|⇒ F2|⇒ F1|⇒ F1|
-|F2|⇒ F3|⇒ F1|⇒ F1|
-|F3|⇒ F3|⇒ F2|⇒ F1|
-
----
-
-##### Exo 9
-
-##### Exo 9
-
-On souhaite modéliser le comportement d’une **fenêtre modale** dans une application. La fenêtre peut être : **Closed**, **Open**, ou **Confirmed**.
-
-- Depuis l’état **Closed**, un clic sur **OPEN** affiche la fenêtre.
-    
-- Lorsque la fenêtre est **Open**, l’utilisateur peut :
-    
-    - annuler avec **CANCEL** (elle se ferme),
-        
-    - valider avec **CONFIRM** (on passe à l’état **Confirmed**),
-        
-    - ou bien la fenêtre peut se fermer automatiquement via un **AUTO timeout**.
-        
-- Depuis l’état **Confirmed**, une nouvelle action (comme **OPEN**, **CANCEL** ou **AUTO**) ramène à l’état **Closed**, permettant une réinitialisation du dialogue.
-    
-
-L’automate permet donc de représenter un **cycle complet d’ouverture, interaction et fermeture** d’une fenêtre modale.
-
-###### **Automate d'état**
-
-```mermaid
-stateDiagram-v2
-    [*] --> E1
-    state E1: Closed
-    state E2: Open
-    state E3: Confirmed
-
-    E1 --> E2 : OPEN
-
-    E2 --> E1 : CANCEL
-    E2 --> E3 : CONFIRM
-    E2 --> E1 : AUTO
-
-    E3 --> E1 : OPEN  ' nouvelle ouverture réinitialise
-    E3 --> E1 : CANCEL
-    E3 --> E1 : AUTO
-```
-
-###### Table de transition (Matrice État / Événement)
-
-|État|OPEN|CANCEL|CONFIRM|AUTO|
-|---|---|---|---|---|
-|E1 Closed|⇒ E2|X|X|X|
-|E2 Open|X|⇒ E1|⇒ E3|⇒ E1|
-|E3 Confirmed|⇒ E1|⇒ E1|⇒ E3|⇒ E1|
-
----
-
-tu veux d’autres exos (min/max, files d’attente, multi-modes) ou on corrige ceux-là d’abord ?
 
 ### Diagrammes de composants personalisés
 #### Historique

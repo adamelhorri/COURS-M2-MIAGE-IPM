@@ -18,12 +18,12 @@
                 "state": {
                   "type": "markdown",
                   "state": {
-                    "file": "Preparation Exam/Prepa de l'Oral CICD 26-09-2025/Prepa de l'Oral CICD 26-09-2025.md",
+                    "file": "Preparation Exam/Prepa du CC 25-09-2025/Prepa Front du CC 25-09-2025.md",
                     "mode": "source",
                     "source": false
                   },
                   "icon": "lucide-file",
-                  "title": "Prepa de l'Oral CICD 26-09-2025"
+                  "title": "Prepa Front du CC 25-09-2025"
                 }
               },
               {
@@ -107,7 +107,7 @@
                   },
                   "pinned": true,
                   "icon": "terminal",
-                  "title": "Terminal: C:\\Windows\\System32\\conhost.exe"
+                  "title": "Terminal: C:\\Windows\\System32\\conhost.exe - git  commit"
                 }
               }
             ]
@@ -262,6 +262,8 @@
   },
   "active": "2807017a174f4a11",
   "lastOpenFiles": [
+    "Preparation Exam/Prepa du CC 25-09-2025/Prepa Front du CC 25-09-2025.md",
+    "Preparation Exam/Prepa du CC 25-09-2025/Prepa Back du CC 25-09-2025.md",
     "Preparation Exam/Prepa de l'Oral CICD 26-09-2025/Prepa de l'Oral CICD 26-09-2025.md",
     "Integration et deploiement/Integration et deploiement.md",
     "Preparation Exam/Prepa de l'Oral CICD 26-09-2025",
@@ -271,11 +273,9 @@
     "M2 MAIGE IPM.md",
     "Dates exams.md",
     "Preparation Exam/Prepa du CC 25-09-2025/PE CC Introduction 25-09.md",
-    "Preparation Exam/Prepa du CC 25-09-2025/Prepa Back du CC 25-09-2025.md",
     "Prog Objet/Exos/Exo 1.md",
     "Prog Objet/Exos/Exos.md",
     "Programmation Front/Exos/Exo 2 - Modelisation de composants.md",
-    "Preparation Exam/Prepa du CC 25-09-2025/Prepa Front du CC 25-09-2025.md",
     "Untitled.canvas",
     "Prog Objet/Cours/Cours.md",
     "Prog Objet/Cours/pdf/Programmation Objet Avancée 1.pdf",
