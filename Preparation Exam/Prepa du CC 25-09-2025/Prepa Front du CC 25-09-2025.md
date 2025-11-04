@@ -124,11 +124,11 @@ E1 --> E1 : timer / a0()
 
 ###### Table de transition (Matrice État / Événement)
 
-| État            | CStart     | CStop      | timer            | CFWD       | CBWD       |
-|-----------------|------------|------------|------------------|------------|------------|
-| E1 (Idle)       | ⇒ E2       | X          | a0()             | X          | X          |
-| E2 (Forward)    | X          | ⇒ E1       | ⇒ E2 / cpt += 1  | X          | ⇒ E3       |
-| E3 (Backward)   | X          | ⇒ E1       | ⇒ E3 / cpt -= 1  | ⇒ E2       | X          |
+| État          | CStart | CStop | timer           | CFWD | CBWD |
+| ------------- | ------ | ----- | --------------- | ---- | ---- |
+| E1 (Idle)     | ⇒ E2   | X     | a0()            | X    | X    |
+| E2 (Forward)  | X      | ⇒ E1  | ⇒ E2 / cpt += 1 | X    | ⇒ E3 |
+| E3 (Backward) | X      | ⇒ E1  | ⇒ E3 / cpt -= 1 | ⇒ E2 | X    |
 
 ##### Exo 5
 
@@ -717,5 +717,6 @@ C’est exactement le rôle du **design pattern Adapter** :
     
 
 Quand l’utilisateur clique sur **ButtonLogin**, le **LoginForm** envoie les infos au **Controller** (non représenté ici, hors périmètre).
+![[Pasted image 20250920185102.png]]
 
 

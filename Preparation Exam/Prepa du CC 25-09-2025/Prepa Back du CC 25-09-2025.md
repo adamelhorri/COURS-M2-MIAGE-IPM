@@ -55,40 +55,24 @@ Controller --> Model : uses
 
 ```plantuml
 @startuml
-class ConfigManager {
-  - static instance : ConfigManager
-  - ConfigManager()
-  + static getInstance() : ConfigManager
-  + get(key : String) : String
+title Singleton - Structure minimale
+
+class Singleton {
+  - static instance : Singleton
+  - Singleton()
+  + getInstance() : Singleton
 }
+
+note right of Singleton
+Obligatoire :
+- instance statique unique
+- constructeur privé
+- méthode getInstance()
+end note
 @enduml
+
 ```
 
-
----
-
-#### 2) Prototype
-
-**Pourquoi ?** **Cloner** rapidement des objets coûteux à créer.  
-**Comment ?** Interface `clone()` qui retourne une copie.
-
-**Exemple (Document modèle)** : duplicer un modèle et modifier le titre.
-
-```plantuml
-@startuml
-interface Prototype {
-  + clone() : Prototype
-}
-class Document implements Prototype {
-  - titre : String
-  - contenu : String
-  + clone() : Document
-}
-Prototype <|.. Document
-@enduml
-```
-
----
 
 ####  Abstract Factory
 
@@ -99,88 +83,53 @@ Prototype <|.. Document
 
 ```plantuml
 @startuml
-interface UIFactory {
-  + createButton() : Button
-  + createCheckbox() : Checkbox
+title Abstract Factory - Exemple de Meubles
+
+' --- Fabrique Abstraite ---
+interface FurnitureFactory {
+  + createChair() : Chair
+  + createTable() : Table
 }
-interface Button
-interface Checkbox
 
-class LightFactory
-class DarkFactory
-class LightButton
-class DarkButton
-class LightCheckbox
-class DarkCheckbox
+' --- Fabriques concrètes ---
+class VictorianFurnitureFactory {
+  + createChair() : Chair
+  + createTable() : Table
+}
+class ModernFurnitureFactory {
+  + createChair() : Chair
+  + createTable() : Table
+}
 
-UIFactory <|.. LightFactory
-UIFactory <|.. DarkFactory
-Button <|.. LightButton
-Button <|.. DarkButton
-Checkbox <|.. LightCheckbox
-Checkbox <|.. DarkCheckbox
+FurnitureFactory <|.. VictorianFurnitureFactory
+FurnitureFactory <|.. ModernFurnitureFactory
+
+' --- Produits Abstraits ---
+interface Chair
+interface Table
+
+' --- Produits Concrets ---
+class VictorianChair
+class VictorianTable
+class ModernChair
+class ModernTable
+
+Chair <|.. VictorianChair
+Chair <|.. ModernChair
+
+Table <|.. VictorianTable
+Table <|.. ModernTable
+
+' --- Relations de création ---
+VictorianFurnitureFactory --> VictorianChair
+VictorianFurnitureFactory --> VictorianTable
+
+ModernFurnitureFactory --> ModernChair
+ModernFurnitureFactory --> ModernTable
 @enduml
+
 ```
 
----
-
-#### 4) Adapter
-
-**Pourquoi ?** Faire coopérer deux **interfaces incompatibles**.  
-**Comment ?** Un `Adapter` implémente la **cible** et utilise l’**adaptee**.
-
-**Exemple (Paiement)** : `PaymentProcessor.pay()` s’adapte à `LegacyPay.charge()`.
-
-```plantuml
-@startuml
-interface PaymentProcessor {
-  + pay(amount : float) : void
-}
-class LegacyPay {
-  + charge(total : float) : void
-}
-class LegacyPayAdapter implements PaymentProcessor {
-  - legacy : LegacyPay
-  + pay(amount : float) : void
-}
-PaymentProcessor <|.. LegacyPayAdapter
-LegacyPayAdapter --> LegacyPay : uses
-@enduml
-```
-
----
-
-#### 5) Composite
-
-**Pourquoi ?** Manipuler **feuilles** et **composites** de la même façon (arbres).  
-**Comment ?** Interface commune + composite contient des enfants.
-
-**Exemple (Système de fichiers)** : `getSize()` sur fichier ou dossier.
-
-
-
-
-```mermaid
-classDiagram
-class FSNode {
-  <<interface>>
-  + getSize() int
-}
-class FileNode {
-  - size : int
-  + getSize() int
-}
-class DirNode {
-  - children : List~FSNode~
-  + add(node: FSNode) void
-  + getSize() int
-}
-FSNode <|.. FileNode
-FSNode <|.. DirNode
-DirNode o-- FSNode
-```
-
----
 
 #### 6) Décorateur
 
@@ -212,64 +161,103 @@ BeverageDecorator <|-- WhipDecorator
 @enduml
 ```
 
-```mermaid
-classDiagram
-class Beverage {
-  <<interface>>
-  + cost() float
-}
-class Espresso {
-  + cost() float
-}
-class BeverageDecorator {
-  <<abstract>>
-  - inner : Beverage
-  + cost() float
-}
-class MilkDecorator
-class WhipDecorator
+#### Builder 
 
-Beverage <|.. Espresso
-Beverage <|.. BeverageDecorator
-BeverageDecorator o-- Beverage
-BeverageDecorator <|-- MilkDecorator
-BeverageDecorator <|-- WhipDecorator
-```
+Dans le **Builder pattern** :
 
----
+1. **Builder (interface/abstrait)**
+    
+    - C’est le **contrat** qui définit les étapes de construction.
+        
+    - Exemple : `buildWalls()`, `buildRoof()`, `buildWindows()`, `getResult()`.
+        
+2. **ConcreteBuilder(s)**
+    
+    - Ce sont les **constructeurs réels** qui suivent la recette.
+        
+    - Chaque ConcreteBuilder peut construire un produit final **différent** avec les mêmes étapes.
+        
+    - Exemple :
+        
+        - `WoodenHouseBuilder` → construit une maison en bois.
+            
+        - `StoneHouseBuilder` → construit une maison en pierre.
+            
+3. **Director (optionnel)**
+    
+    - Orchestrer les étapes toujours dans le même ordre.
+        
+    - Exemple : `constructSimpleHouse()` appelle `buildWalls → buildRoof → buildDoor`.
+        
+4. **Product**
+    
+    - C’est l’objet final (la maison, le burger, la voiture, etc.).
 
-#### 7) Itérateur
-
-**Pourquoi ?** Parcourir une collection **sans exposer** sa structure.  
-**Comment ?** `Iterator` avec `hasNext()/next()`.
-
-**Exemple (Playlist)** : parcourir les chansons dans l’ordre.
-
-```plantuml
+```puml
 @startuml
-interface Iterator<T> {
-  + hasNext() : boolean
-  + next() : T
+title Builder Pattern - Exemple Maison
+
+' --- Produit ---
+class House {
+  - walls : String
+  - roof : String
+  - windows : String
+  - door : String
+  + show() : void
 }
-interface Iterable<T> {
-  + createIterator() : Iterator<T>
+
+' --- Builder Abstrait ---
+interface HouseBuilder {
+  + buildWalls() : void
+  + buildRoof() : void
+  + buildWindows() : void
+  + buildDoor() : void
+  + getResult() : House
 }
-class Playlist implements Iterable<Song> {
-  - items : List<Song>
-  + createIterator() : Iterator<Song>
+
+' --- Builders Concrets ---
+class WoodenHouseBuilder {
+  + buildWalls() : void
+  + buildRoof() : void
+  + buildWindows() : void
+  + buildDoor() : void
+  + getResult() : House
 }
-class PlaylistIterator implements Iterator<Song> {
-  - index : int
-  - src : Playlist
-  + hasNext() : boolean
-  + next() : Song
+class StoneHouseBuilder {
+  + buildWalls() : void
+  + buildRoof() : void
+  + buildWindows() : void
+  + buildDoor() : void
+  + getResult() : House
 }
-Iterator <|.. PlaylistIterator
-Iterable <|.. Playlist
-PlaylistIterator --> Playlist
+
+HouseBuilder <|.. WoodenHouseBuilder : implémente
+HouseBuilder <|.. StoneHouseBuilder : implémente
+
+' --- Directeur ---
+class Director {
+  + construct(builder : HouseBuilder) : void
+}
+
+Director --> HouseBuilder : "orchestrer étapes"
+WoodenHouseBuilder --> House : "fabrique"
+StoneHouseBuilder --> House : "fabrique"
 @enduml
+
 ```
----
+#### Command
+ 🎯 Résumé
+
+- **Command** = interface avec `execute()`.
+    
+- **ConcreteCommand** = encapsule une action (ex : allumer/éteindre la lumière).
+    
+- **Receiver** = l’objet qui fait vraiment le travail (`Light`).
+    
+- **Invoker** = celui qui lance la commande (`RemoteControl`).
+    
+- **Client** = configure l’Invoker avec la commande voulue.
+![[Pasted image 20250923095254.png]]
 #### 8) Observer
 
 **Pourquoi ?** **Notifier automatiquement** plusieurs abonnés quand l’état change.  
@@ -279,26 +267,47 @@ PlaylistIterator --> Playlist
 
 ```plantuml
 @startuml
-interface Observer {
-  + update(price : float) : void
+title Observer Pattern - Web Notifications
+
+' --- Subject (Observable) ---
+interface NotificationSubject {
+  + subscribe(o : Observer) : void
+  + unsubscribe(o : Observer) : void
+  + notifyAll(message : String) : void
 }
-interface Subject {
-  + register(o:Observer) : void
-  + remove(o:Observer) : void
-  + notifyAll() : void
-}
-class StockTicker implements Subject {
+
+class NotificationService {
   - observers : List<Observer>
-  - price : float
-  + setPrice(p:float) : void
+  + subscribe(o : Observer) : void
+  + unsubscribe(o : Observer) : void
+  + notifyAll(message : String) : void
 }
-class MobileApp implements Observer {
-  + update(price:float) : void
+NotificationSubject <|.. NotificationService
+
+' --- Observer ---
+interface Observer {
+  + update(message : String) : void
 }
-Subject <|.. StockTicker
-Observer <|.. MobileApp
-StockTicker o-- Observer
+
+' --- Concrete Observers ---
+class UserWebClient {
+  + update(message : String) : void
+}
+class MobileAppClient {
+  + update(message : String) : void
+}
+class AdminDashboard {
+  + update(message : String) : void
+}
+
+Observer <|.. UserWebClient
+Observer <|.. MobileAppClient
+Observer <|.. AdminDashboard
+
+' --- Relations ---
+NotificationService --> Observer : "notifie"
 @enduml
+
 ```
 
 
