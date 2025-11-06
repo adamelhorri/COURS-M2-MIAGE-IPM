@@ -14,6 +14,6 @@ tags:
 - ### [[Programmation Objet]]
 - ### [[Integration et deploiement]]
 - ### [[Anglais]]
-
-
+- ### [[Process Intelligence]]
+- ### [[Developpement cloud]]
 

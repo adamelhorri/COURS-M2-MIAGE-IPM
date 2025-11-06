@@ -3,6 +3,7 @@ tags:
   - exam
   - IDC
 ---
+[[Integration et deploiement]]
 ## Pipeline principal du CI/CD
  Pipeline : **Source → Verify → Package → Release → Deployment → Prod**.
 
