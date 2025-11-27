@@ -6,7 +6,7 @@ tags:
   - resume
 ---
 #### [[Repos GIT]]
-### [[Dates exams]]
+### [[Exams notes]]
 #### [[README]]
 ## Cours
 

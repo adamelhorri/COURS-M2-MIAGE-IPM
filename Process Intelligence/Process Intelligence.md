@@ -6,3 +6,4 @@ tags:
   - exam
 ---
 ### [[Process Intelligence/COurs/Cours|Cours]]
+## [[Analyse des BPMN Pizza maker]]
