@@ -4,24 +4,87 @@
     "type": "split",
     "children": [
       {
-        "id": "3d935a9faf5b0676",
-        "type": "tabs",
+        "id": "e09333327d6e4ef9",
+        "type": "split",
         "children": [
           {
-            "id": "d18c3ba03aea0cf0",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Programmation Backend/Cours/Resumé prépa exam.md",
-                "mode": "source",
-                "source": false
+            "id": "3d935a9faf5b0676",
+            "type": "tabs",
+            "children": [
+              {
+                "id": "d18c3ba03aea0cf0",
+                "type": "leaf",
+                "state": {
+                  "type": "markdown",
+                  "state": {
+                    "file": "Urbanisation Gouvernance des SI/Cours/Cours 1.md",
+                    "mode": "source",
+                    "source": false
+                  },
+                  "icon": "lucide-file",
+                  "title": "Cours 1"
+                }
               },
-              "icon": "lucide-file",
-              "title": "Resumé prépa exam"
-            }
+              {
+                "id": "d287db9fdfc2daa2",
+                "type": "leaf",
+                "state": {
+                  "type": "graph",
+                  "state": {},
+                  "icon": "lucide-git-fork",
+                  "title": "Graph view"
+                }
+              }
+            ],
+            "currentTab": 1
+          },
+          {
+            "id": "33abde7625ee33f6",
+            "type": "tabs",
+            "children": [
+              {
+                "id": "01ca973eb5d5c903",
+                "type": "leaf",
+                "pinned": true,
+                "state": {
+                  "type": "terminal:terminal",
+                  "state": {
+                    "terminal:terminal": {
+                      "cwd": "C:\\Users\\adame\\Documents\\IPM\\COURS-M2-MIAGE-IPM",
+                      "focus": false,
+                      "profile": {
+                        "args": [],
+                        "executable": "C:\\Windows\\System32\\cmd.exe",
+                        "name": "",
+                        "platforms": {
+                          "win32": true
+                        },
+                        "pythonExecutable": "python3",
+                        "restoreHistory": false,
+                        "rightClickAction": "copyPaste",
+                        "successExitCodes": [
+                          "0",
+                          "SIGINT",
+                          "SIGTERM"
+                        ],
+                        "terminalOptions": {
+                          "documentOverride": null
+                        },
+                        "type": "integrated",
+                        "useWin32Conhost": true
+                      },
+                      "serial": null
+                    }
+                  },
+                  "pinned": true,
+                  "icon": "terminal",
+                  "title": "Terminal: C:\\Windows\\System32\\conhost.exe"
+                }
+              }
+            ]
           }
-        ]
+        ],
+        "direction": "horizontal"
       }
     ],
     "direction": "vertical"
@@ -78,7 +141,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 265.5
+    "width": 265.5,
+    "collapsed": true
   },
   "right": {
     "id": "1925df1ec832ded8",
@@ -167,93 +231,54 @@
       "terminal:Open terminal": false
     }
   },
-  "floating": {
-    "id": "d01f69bd4935fd4c",
-    "type": "floating",
-    "children": [
-      {
-        "id": "55880870f567636d",
-        "type": "window",
-        "children": [
-          {
-            "id": "dff3f3a76a2da25e",
-            "type": "tabs",
-            "children": [
-              {
-                "id": "56d38e304cc491fa",
-                "type": "leaf",
-                "state": {
-                  "type": "markdown",
-                  "state": {
-                    "file": "Programmation Backend/Prepa/Mes notes.md",
-                    "mode": "source",
-                    "source": false
-                  },
-                  "icon": "lucide-file",
-                  "title": "Mes notes"
-                }
-              }
-            ]
-          }
-        ],
-        "direction": "vertical",
-        "x": 0,
-        "y": 0,
-        "width": 960,
-        "height": 1032,
-        "maximize": false,
-        "zoom": 0
-      }
-    ]
-  },
-  "active": "d18c3ba03aea0cf0",
+  "active": "01ca973eb5d5c903",
   "lastOpenFiles": [
-    "Programmation Backend/Prepa/Mes notes.md",
-    "Programmation Backend/Cours/Resumé prépa exam.md",
-    "Programmation Backend/Prepa/Plan.md",
+    "Process Intelligence/Exos/Exos.md",
+    "Process Intelligence/Exos/Exo 4 fiche TD.md",
+    "Programmation Backend/Programmation backend.md",
     "Programmation Backend/Prepa/Quizz TP.md",
-    "Programmation Backend/Prepa/TPs/TP Servlet JSP.md",
+    "Programmation Backend/Prepa/Plan.md",
+    "Developpement pour le Big Data/TPs/TPs.md",
+    "Developpement pour le Big Data/TPs/TP3/TP3.md",
+    "Developpement pour le Big Data/TPs/TP3/Exo 5.md",
+    "Developpement pour le Big Data/TPs/TP3/Exo 4.md",
+    "Developpement pour le Big Data/TPs/TP3/Exo 3.md",
+    "Urbanisation Gouvernance des SI/Cours/Cours 1.md",
+    "Developpement pour le Big Data/TPs/TP3/Exo 2.md",
+    "Developpement pour le Big Data/TPs/TP3/Exo 1.md",
+    "Developpement pour le Big Data/Développement pour le Big Data.md",
+    "Developpement pour le Big Data/TPs/TP3",
+    "Programmation Backend/Cours/Resumé prépa exam.md",
     "Programmation Backend/Prepa/TPs/TP Hibernate.md",
-    "Programmation Backend/Prepa/Quizz cours.md",
+    "Programmation Backend/Prepa/TPs/TP Servlet JSP.md",
+    "M2 MAIGE IPM.md",
+    "Untitled.canvas",
+    "Process Intelligence/Process Intelligence.md",
+    "Agilité/Agilité.md",
+    "Developpement pour le Big Data/TPs/TP2.md",
+    "Programmation Backend/Prepa/Mes notes.md",
+    "Agilité/TD/TD1.md",
+    "Developpement cloud/Projet/Projet.md",
+    "Developpement cloud/Projet/Backlog.md",
+    "Urbanisation Gouvernance des SI/Urbanisation Gouvernance des SI.md",
+    "Urbanisation Gouvernance des SI/QCMs",
+    "Developpement pour le Big Data/TPs",
+    "Developpement pour le Big Data",
+    "Urbanisation Gouvernance des SI/Cours",
+    "Urbanisation Gouvernance des SI",
+    "Agilité/TD",
+    "z_img/Pasted image 20250920185102.png",
+    "Untitled 1",
+    "z_img/Pasted image 20251127165234.png",
+    "z_img/Pasted image 20251127161131.png",
+    "z_img/Pasted image 20251127151338.png",
+    "z_img/Pasted image 20251127145706.png",
+    "z_img/Pasted image 20251127142509.png",
+    "z_img/Pasted image 20251127142139.png",
+    "z_img/Pasted image 20251127141857.png",
     "Programmation Backend/Prepa/TPs",
     "z_img/Pasted image 20250917104435.png",
-    "Programmation Front/Cours/Cours.md",
-    "Programmation Front/Exos/Exo 2 - Modelisation de composants.md",
-    "Developpement cloud/Projet/Architecture.md",
-    "Preparation Exam/Prepa de CICD 26-09-2025/Prepa Exam CI CD 26-09-2025.md",
-    "Integration et deploiement/Cours/Cours 2 - Source - Bonnes pratiques GIT.md",
-    "Process Intelligence/Projet/Analyse des BPMN Pizza maker.md",
     "Programmation Backend/Prepa",
-    "Programmation Backend/Programmation backend.md",
-    "Programmation Backend/Cours",
-    "Programmation Backend",
-    "Prog Objet/Exos/Exo 1.md",
-    "Untitled.canvas",
-    "Integration et deploiement/Cours/Cours 5 - GitLab.md",
-    "Process Intelligence/Process Intelligence.md",
-    "Exams notes.md",
-    "Process Intelligence/Projet",
-    "Process Intelligence/Exos/Exo 4 fiche TD.md",
-    "Pasted image 20251113121045.png",
-    "Pasted image 20251113120610.png",
-    "Process Intelligence/Exos/Exos.md",
-    "Process Intelligence/Exos/Exo 3 Fiche TD.md",
-    "Pasted image 20251113113944.png",
-    "Pasted image 20251113113820.png",
-    "Developpement cloud/Projet/Projet Objectifs.md",
-    "Process Intelligence/Exos",
-    "Developpement cloud/Projet/Backlog.md",
-    "Developpement cloud/Projet/Projet.md",
-    "Developpement cloud/Developpement cloud.md",
-    "Developpement cloud/Cours/Cours.md",
-    "Developpement cloud/Projet",
-    "Developpement cloud/Cours",
-    "Developpement cloud",
-    "Agilité",
-    "z_img/ZL9DIWCn5Dxd56zdHT83596Yk104fVG28VDIW_afoSime1wev-Z5JCTcfe60tOLy_o7hI29GieQH9eFmvAqLheDtGOJ10OVd0Uq-8zlZmHmFyWz7ncw0SpxnyvbfboLAoDdbYm7S0Gue4-7Y5bRGUzsndrdjP42Q177qaKR42DiKt9jxrRiF-jVkGg7KTH9M6FVVosKZhC9RrcN31YNg.png",
-    "z_img/36b104e6-17c9-4575-83a4-89b2a1f46c80.png",
-    "z_img/ZL9DIWCn5Dxd56zdHT83596Yk104fVG28VDIW_afoSime1wev-Z5JCTcfe60tOLy_o7hI29GieQH9eFmvAqLheDtGOJ10OVd0Uq-8zlZmHmFyWz7ncw0SpxnyvbfboLAoDdbYm7S0Gue4-7Y5bRGUzsndrdjP42Q177qaKR42DiKt9jxrRiF-jVkGg7KTH9M6FVVosKZhC9RrcN31YNg7iD5zP5sZgRHUKgUxvIgwZJcSlvmjbg1s6c2c0.png",
-    "Pasted image 20250923095254.png",
-    "z_img/ZL9DIWCn5Dxd56zdHT83596Yk104fVG28VDIW_afoSime1wev-Z5JCTcfe60tOLy_o7hI29GieQH9eFmvAqLheDtGOJ10OVd0Uq-8zlZmHmFyWz7ncw0SpxnyvbfboLAoDdbYm7S0Gue4-7Y5bRGUzsndrdjP42Q177qaKR42DiKt9jxrRiF-jVkGg7KTH9M6FVVosKZhC9RrcN31YNg-1.png"
+    "z_img/Pasted image 20251113121045.png"
   ]
 }

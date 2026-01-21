@@ -48,6 +48,34 @@
         "a": 1,
         "rgb": 15860226
       }
+    },
+    {
+      "query": "tag:#BigData  ",
+      "color": {
+        "a": 1,
+        "rgb": 11631829
+      }
+    },
+    {
+      "query": "tag:#back  ",
+      "color": {
+        "a": 1,
+        "rgb": 11621088
+      }
+    },
+    {
+      "query": "tag:#gov  ",
+      "color": {
+        "a": 1,
+        "rgb": 327424
+      }
+    },
+    {
+      "query": "tag:#agile  ",
+      "color": {
+        "a": 1,
+        "rgb": 6311245
+      }
     }
   ],
   "collapse-display": false,
@@ -60,6 +88,6 @@
   "repelStrength": 15.625,
   "linkStrength": 0.817708333333333,
   "linkDistance": 116,
-  "scale": 0.39980689368713773,
+  "scale": 0.21616159452762887,
   "close": false
 }
